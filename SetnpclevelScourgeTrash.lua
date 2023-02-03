@@ -120,3 +120,7 @@ creature:CastSpell(creature, 100133, true)
 end
 
 -- Register CastSpellOnSpawn2 function to be called when an NPC with the specified NPC IDs
+spawned
+for _, npcId in ipairs(npcIds1) do
+RegisterCreatureEvent(npcId, 5, CastSpellOnSpawn2)
+end
