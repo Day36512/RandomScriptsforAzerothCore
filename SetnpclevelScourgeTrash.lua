@@ -16,7 +16,7 @@ local npcIds = {
 
 -- Function to cast spell ID 28234 on the creature and mask the level up spawning visual. this was really just for an event and can be removed
 local function CastSpellOnSpawn(event, creature)
-  -- Set the creature's level to a random value between whatever, in this case 45-50
+  -- Set the creature's level to a random value between whatever, in this case 25-30
   local level = math.random(25, 30)
   creature:SetLevel(level)
   
