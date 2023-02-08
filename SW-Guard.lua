@@ -1,4 +1,4 @@
-local npcId = 400014 --ID from creature_template
+local SwHorse = {}; --ID from creature_template
 
 local dialogues = {
 "Defend our lands with all you've got!",
@@ -34,5 +34,5 @@ local randomDialogue = dialogues[math.random(26)]
 creature:SendUnitYell(randomDialogue,0) 
 end
 
-RegisterCreatureEvent(npcId, 5, OnSpawn)
+RegisterCreatureEvent(400014, 5, OnSpawn)
 

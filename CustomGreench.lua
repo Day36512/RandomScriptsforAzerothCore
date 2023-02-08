@@ -1,4 +1,4 @@
-local AbominableGreench = {}
+local AbominableGreench = {};
 
 function AbominableGreench.OnDie(event, creature)
 creature:SendUnitYell("Argh... I'll be back!", 0)

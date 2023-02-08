@@ -1,4 +1,4 @@
-local npcId = 400013
+local Stormwind = {};
 
 local function CastCleave(eventId, delay, calls, creature)
     creature:CastSpell(creature:GetVictim(), 20677, true)
@@ -16,6 +16,6 @@ local function OnDied(event, creature, killer)
     creature:RemoveEvents()
 end
 
-RegisterCreatureEvent(npcId, 1, OnEnterCombat)
-RegisterCreatureEvent(npcId, 2, OnLeaveCombat)
-RegisterCreatureEvent(npcId, 4, OnDied)
+RegisterCreatureEvent(400013, 1, OnEnterCombat)
+RegisterCreatureEvent(400013, 2, OnLeaveCombat)
+RegisterCreatureEvent(400013, 4, OnDied)
