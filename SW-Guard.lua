@@ -1,3 +1,5 @@
+--Made by Dinkledork. This script defines a table of 26 battle cries for a creature with ID 400014. When the creature spawns, it will randomly select one of the 26 dialogues and use it in a yell.
+
 local SwHorse = {}; --ID from creature_template
 
 local dialogues = {
@@ -30,9 +32,9 @@ local dialogues = {
 }
 
 local function OnSpawn(event, creature) 
-local randomDialogue = dialogues[math.random(26)]
-creature:SendUnitYell(randomDialogue,0) 
+  local randomDialogue = dialogues[math.random(26)] -- Selects a random dialogue from the "dialogues" table
+  creature:SendUnitYell(randomDialogue,0) -- Makes the creature yell the selected dialogue
 end
 
-RegisterCreatureEvent(400014, 5, OnSpawn)
+RegisterCreatureEvent(400014, 5, OnSpawn) -- Registers the "OnSpawn" function as a spawn event for the creature with ID 400014
 

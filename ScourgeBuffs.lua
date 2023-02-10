@@ -3,8 +3,8 @@ local BLESSING_SPELL_ID = 100003 -- replace with the first spell ID
 local SOULSTONE_SPELL_ID = 20707 -- replace with the second spell ID
 
 local function OnGossipHello(event, player, creature)
-player:GossipMenuAddItem(9, "Receive the King's blessing", 0, 1, false, "", 0)
-player:GossipMenuAddItem(9, "Receive a Soulstone", 0, 2, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_ReviveChampion:50:50:-43:0|tReceive the King's blessing", 0, 1, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\inv_misc_orb_04:50:50:-43:0|tReceive a Soulstone", 0, 2, false, "", 0)
 player:GossipSendMenu(1, creature)
 end
 

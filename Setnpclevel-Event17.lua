@@ -14,7 +14,8 @@ local npcIds1 = {
 400011,
 400015,
 400016,
-300018
+300018,
+400029
 }
 
 -- Table to store NPC IDs for group 2
@@ -24,7 +25,10 @@ local npcIds2 = {
 68,
 1976,
 466,
-400018
+400018,
+400019,
+400026,
+400027
 }
 
 -- Boolean to enable or disable modifying health and level
