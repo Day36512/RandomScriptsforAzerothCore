@@ -23,33 +23,33 @@ local Config_ItemId = {}
 local Config_ItemAmount = {}
 local LUR_playerCounter = {}
 
-Config_Gold[10] = 20000       -- gold granted when reaching level [10] in copper. 10000 =  1 gold. Cost for spells 10-18 (mage): ~1g50s
-Config_Gold[20] = 140000       --  Cost for spells 20-28 (mage): ~11g
-Config_Gold[30] = 360000      --  Cost for spells 30-38 (mage): ~27g
-Config_Gold[40] = 700000      --  Cost for spells 40-48 (mage): ~50g
-Config_Gold[50] = 1000000      --  Cost for spells 50-58 (mage): ~93g
-Config_Gold[61] = 1250000
-Config_Gold[65] = 1600000
-Config_Gold[71] = 2000000
-Config_Gold[75] = 3000000
-Config_Gold[80] = 7000000
+Config_Gold[10] = 10000       -- gold granted when reaching level [10] in copper. 10000 =  1 gold. Cost for spells 10-18 (mage): ~1g50s
+Config_Gold[20] = 70000       --  Cost for spells 20-28 (mage): ~11g
+Config_Gold[30] = 180000      --  Cost for spells 30-38 (mage): ~27g
+Config_Gold[40] = 350000      --  Cost for spells 40-48 (mage): ~50g
+Config_Gold[50] = 650000      --  Cost for spells 50-58 (mage): ~93g
+Config_Gold[61] = 600000
+Config_Gold[65] = 800000
+Config_Gold[71] = 1000000
+Config_Gold[75] = 1800000
+Config_Gold[80] = 5000000
 
-Config_ItemId[29] = 34492      -- item granted when reaching level [29] / 5740 is a cosmetic red rocket
-Config_ItemAmount[29] = 1     -- amount of items to be granted when reaching level [29]. Missing amounts are automatically set to 1 if an ItemId is given
-Config_ItemId[35] = 45706
-Config_ItemAmount[35] = 1
-Config_ItemId[40] = 46109
-Config_ItemAmount[40] = 1
-Config_ItemId[43] = 52001
-Config_ItemAmount[43] = 1
-Config_ItemId[46] = 45706
-Config_ItemAmount[46] = 1
-Config_ItemId[50] = 52002
-Config_ItemAmount[50] = 1
-Config_ItemId[59] = 33223
-Config_ItemAmount[59] = 1
-Config_ItemId[60] = 49646
-Config_ItemAmount[60] = 1
+Config_ItemId[29] = 5740      -- item granted when reaching level [29] / 5740 is a cosmetic red rocket
+Config_ItemAmount[29] = 5     -- amount of items to be granted when reaching level [29]. Missing amounts are automatically set to 1 if an ItemId is given
+Config_ItemId[35] = 34412
+Config_ItemAmount[35] = 10
+Config_ItemId[39] = 9312
+Config_ItemAmount[39] = 5
+Config_ItemId[43] = 35563
+Config_ItemAmount[43] = 10
+Config_ItemId[46] = 35565
+Config_ItemAmount[46] = 10
+Config_ItemId[49] = 9313
+Config_ItemAmount[49] = 5
+Config_ItemId[59] = 9314
+Config_ItemAmount[59] = 5
+Config_ItemId[60] = 9315
+Config_ItemAmount[60] = 5
 Config_ItemId[64] = 9312
 Config_ItemAmount[64] = 5
 Config_ItemId[69] = 9313
@@ -59,19 +59,19 @@ Config_ItemAmount[70] = 5
 
 -- General Settings Config
 local Config_mailText = 2           -- Which text to send in the mail to the player.
-local Config_senderGUID = 1     -- GUID/ID of the Player/Creature. If Config_preventReturn = true then you need to put Creature ID. If it's false Player GUID. 0 = No sender aka "From: Unknown".
+local Config_senderGUID = 10667     -- GUID/ID of the Player/Creature. If Config_preventReturn = true then you need to put Creature ID. If it's false Player GUID. 0 = No sender aka "From: Unknown".
 local Config_mailStationery = 41    -- Stationary used in the mail sent to the player. (41 Normal Mail, 61 GM/Blizzard Support, 62 Auction, 64 Valentines, 65 Christmas) Note: Use 62, 64, and 65 At your own risk.
-local Config_maxGMRank = 3          -- Checks the player's assigned GM rank. Anything above the assigned default will not receive mail/be counted for the player counter. Default 0 - Players Only. Max 3 - All GMS/Mods/Etc will receive as well.
+local Config_maxGMRank = 0          -- Checks the player's assigned GM rank. Anything above the assigned default will not receive mail/be counted for the player counter. Default 0 - Players Only. Max 3 - All GMS/Mods/Etc will receive as well.
 local Config_preventReturn = true   -- Modify's the Mail database to prevent returning of rewards. Note: If you are experiencing server lag after installing this module please disable this option to see if it helps.
 
 -- Config_mailText == 1 Config
-local Config_mailSubject1 = "Dinkle's reward for You!"
-local Config_mailText1 = "!\n\nYou've done well while advancing on Dinkle's Server. Here is a small reward to celebrate your heroic deeds. Go forth!\n\nKind regards,\nDinkle"
+local Config_mailSubject1 = "Dinkledork's reward for You!"
+local Config_mailText1 = "!\n\nYou've done well while advancing on ChromieCraft. Here is a small reward to celebrate your heroic deeds. Go forth!\n\nKind regards,\nChromie"
 -- Config_mailText == 2 Config
-local Config_mailSubject2 = "Dinkle's reward for You!"
+local Config_mailSubject2 = "Dinkledork's reward for You!"
 local Config_mailText2A = " and congratulations! \n\nThe bronze Dragonflight would like to inform you that you were the "
 local Config_mailText2B = " adventurer to reach the "
-local Config_mailText2C = " level of mastery.\nYour adventures have made me take notice of you, take this small reward as a token of my appreciation.\nGo forth!\n\nKind regards,\nDinkle"
+local Config_mailText2C = " level of mastery.\nYour adventures have made me take notice of you, take this small reward as a token of my appreciation.\nGo forth!\n\nKind regards,\nChromie"
 
 -- Name of Eluna dB scheme
 local Config_customDbName = 'ac_eluna';
