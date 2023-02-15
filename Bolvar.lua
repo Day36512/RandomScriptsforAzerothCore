@@ -1,9 +1,5 @@
 local Bolvar = {}
 
-local function CastHolyShield(eventId, delay, calls, creature)
-creature:CastSpell(creature, 20928, true)
-end
-
 local function CastAS(eventId, delay, calls, creature)
 creature:CastSpell(creature:GetVictim(), 32699, true)
 end
@@ -25,7 +21,6 @@ creature:CastSpell(creature, 20217, true)
 end
 
 local function OnEnterCombat(event, creature, target)
-creature:RegisterEvent(CastHolyShield, 8000, 0)
 creature:RegisterEvent(CastAS, 12600, 0)
 creature:RegisterEvent(CastHOR, 5000, 0)
 creature:RegisterEvent(CastJOL, 10000, 0)
