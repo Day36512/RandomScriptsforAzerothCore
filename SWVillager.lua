@@ -3,8 +3,8 @@
 
 local npcid = 400028
 local gossipText = "Get the Stormwind Citizen to calm down..."
-local itemId = 3713 -- Soothing spices as a test, required to interact with the npc. Can set to a given quest item.
-local spellId = 7001
+local itemId = 60083 -- Soothing spices as a test, required to interact with the npc. Can set to a given quest item.
+local spellId = 139
 
 -- This function is called when the player first interacts with the NPC
 local function OnGossipHello(event, player, creature)

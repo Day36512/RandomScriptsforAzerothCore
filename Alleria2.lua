@@ -28,12 +28,11 @@ end
 
 local function CastDisengage(eventId, delay, calls, creature)
 local victim = creature:GetVictim()
-creature:CastSpell(victim, 781, false)
+creature:CastSpell(victim, 57635, false)
 end
 
 local function CastFD(eventId, delay, calls, creature)
-local victim = creature:GetVictim()
-creature:CastSpell(victim, 23604, false)
+creature:CastSpell(creature, 23604, false)
 end
 
 local function CastRoot(eventId, delay, calls, creature)

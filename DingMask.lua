@@ -15,7 +15,8 @@ local npcIds1 = {
 400015,
 400016,
 300018,
-400029
+400029,
+400032
 }
 
 -- Table to store NPC IDs for group 2
@@ -28,7 +29,8 @@ local npcIds2 = {
 400018,
 400019,
 400026,
-400027
+400027,
+400033
 }
 
 -- Function to be executed when an NPC from group 1 is spawned
