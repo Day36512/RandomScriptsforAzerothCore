@@ -8,8 +8,8 @@ local function CastHOR(eventId, delay, calls, creature)
 creature:CastSpell(creature:GetVictim(), 53595, true)
 end
 
-local function CastJOL(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 20271, true)
+local function CastSunder(eventId, delay, calls, creature)
+creature:CastSpell(creature:GetVictim(), 58461, true)
 end
 
 local function CastAvengingWrath(event, creature)
@@ -23,7 +23,7 @@ end
 local function OnEnterCombat(event, creature, target)
 creature:RegisterEvent(CastAS, 12600, 0)
 creature:RegisterEvent(CastHOR, 5000, 0)
-creature:RegisterEvent(CastJOL, 10000, 0)
+creature:RegisterEvent(CastSunder, 10000, 0)
 creature:RegisterEvent(CastAvengingWrath, 1, 1)
 end
 

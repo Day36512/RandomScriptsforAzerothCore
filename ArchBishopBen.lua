@@ -17,8 +17,9 @@ creature:CastSpell(creature:GetVictim(), 37959, true)
 end
 
 local function OnEnterCombat(event, creature, target)
-creature:RegisterEvent(CastHolyB, 6600, 0)
-creature:RegisterEvent(CastHolyFire, 2500, 0)
+creature:PlayDirectSound(20417)
+creature:RegisterEvent(CastHolyB, 4600, 0)
+creature:RegisterEvent(CastHolyFire, 1500, 0)
 creature:RegisterEvent(CastSWP, 15000, 0)
 creature:RegisterEvent(CastHV, 25000, 0)
 

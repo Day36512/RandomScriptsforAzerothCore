@@ -1,3 +1,5 @@
+--Needs lots and lots of work.
+
 local AbominableGreench = {};
 
 function AbominableGreench.OnDie(event, creature)

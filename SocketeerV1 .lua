@@ -23,7 +23,7 @@ creature:SendUnitSay("The socket enchant has been added to your inventory.", 0)
 ExchangeCount = ExchangeCount + 1 -- Increase the number of successful exchanges
 if (ExchangeCount >= 3) then -- If the number of successful exchanges is 3 or more
 creature:SendUnitSay("Thanks a bunch! See you next week!", 0)
-creature:DespawnOrUnsummon(1000) -- Despawn the creature with a 2 second delay
+creature:DespawnOrUnsummon(1000) -- Despawn the creature with a 1 second delay
 end
 player:GossipComplete()
 else

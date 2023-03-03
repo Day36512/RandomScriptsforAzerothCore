@@ -4,8 +4,14 @@ local function CastTrample(eventId, delay, calls, creature)
 creature:CastSpell(creature:GetVictim(), 5568, true)
 end
 
+local function CastKnockback(eventId, delay, calls, creature)
+creature:CastSpell(creature:GetVictim(), 49398, true)
+end
+
 function FoeReaper.OnEnterCombat(event, creature, target)
+creature:SendUnitYell("You like me, you really like me!", 0)
 creature:RegisterEvent(CastTrample, 5000, 0)
+creature:RegisterEvent(CastKnockback, 15000, 0)
 end
 
 function FoeReaper.OnLeaveCombat(event, creature)
