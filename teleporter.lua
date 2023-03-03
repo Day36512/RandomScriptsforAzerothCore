@@ -1,27 +1,3 @@
---[==[
-    = How to add new locations =
-
-    Example:
-
-    The first line will be the main menu ID (Here [1], 
-    increment this for each main menu option!),
-    the main menu gossip title (Here "Horde Cities"),
-    as well as which faction can use the said menu (Here 1 (Horde)). 
-    0 = Alliance, 1 = Horde, 2 = Both
-
-    The second line is the name of the main menu's sub menus, 
-    separated by name (Here "Orgrimmar") and teleport coordinates
-    using Map, X, Y, Z, O (Here 1, 1503, -4415.5, 22, 0)
-
-    [1] = { "Horde Cities", 1,	--  This will be the main menu title, as well as which faction can use the said menu. 0 = Alliance, 1 = Horde, 2 = Both
-        {"Orgrimmar", 1, 1503, -4415.5, 22, 0},
-    },
-
-    You can copy paste the above into the script and change the values as informed.
-	
-	ItemEntry is set to Hearthstone. You may use another entry with a spell cast.
-]==]
-
 local ItemEntry = 6948 -- Hearthstone. You can change this item ID to whatever.
 
 local T = {
@@ -85,9 +61,6 @@ local T = {
 		{"Ruby Sanctum", 571, 3600.5, 197.34, -113.76, 5.29905},
 	},
 }
-
--- CODE STUFFS! DO NOT EDIT BELOW
--- UNLESS YOU KNOW WHAT YOU'RE DOING!
 
 local function OnGossipHello(event, player, item)
     -- Show main menu

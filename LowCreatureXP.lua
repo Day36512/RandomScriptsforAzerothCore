@@ -7,8 +7,8 @@
 --XP = (Char Level * 5) + 1878, where Char Level = Mob Level, for mobs in Cataclysm
 
 local ENABLED = true --change to true or false depending on whether or not you want the script enabled.
-local XP_MODIFIER = 0.25 --change me to be whatever you want
-local BASE_XP = 45
+local XP_MODIFIER = 0.05 --change me to be whatever you want
+local BASE_XP = 15
 
 --You don't need to modify anything below.
 
