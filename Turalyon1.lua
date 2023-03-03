@@ -4,7 +4,7 @@ local spellid2 = 69930
 local spellid3 = 52386
 local yelltext = {
 "Defenders, forward! We end this beast here and now!",
-"We fight for Home, for Family...I only hope we are not too late.",
+"We fight the Scourge to protect our homes, our families...I only hope we are not too late.",
 "",
 "Alleria...perfect timing as always.",
 }

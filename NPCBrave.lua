@@ -1,4 +1,4 @@
-local BRAVE_IDS = {5412, 5511, 5512, 957, 7798, 11026, 5518, 5510, 5509, 1416, 5514, 29016, 29019}
+local BRAVE_IDS = {5412, 5511, 5512, 957, 7798, 11026, 5518, 5510, 5509, 1416, 5514, 29016, 29019, 3518, 1472}
 local BRAVERY_DIALOGUE = {
   "I fear no enemy!",
   "I will fight to the bitter end!",

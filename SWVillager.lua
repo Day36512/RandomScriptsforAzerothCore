@@ -16,7 +16,7 @@ player:GossipMenuAddItem(0, gossipText, 0, 1)
 player:GossipSendMenu(1, creature)
 else
 -- Send an error message to the player if they don't have the necessary item
-player:SendBroadcastMessage("You do not have the necessary item to calm the citizen.")
+player:SendBroadcastMessage("They aren't responding to anything...Maybe you should go ask Arch Bishop Benedictus for help in the Cathedral of Light.")
 end
 end
 

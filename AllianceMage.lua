@@ -3,8 +3,8 @@ local conjuredCinnamonRolls = 22895
 local arcaneIntellect = 10157
 
 local function OnGossipHello(event, player, creature)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\inv_misc_food_73cinnamonroll:50:50:-43:0|tTake some Conjured Cinnamon Rolls", 0, 1, false, "", 0)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_Magicalsentry:50:50:-43:0|tCast Arcane Intellect", 0, 2, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\inv_misc_food_73cinnamonroll:50:50:-13:0|tTake some Conjured Cinnamon Rolls", 0, 1, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_Magicalsentry:50:50:-13:0|tCast Arcane Intellect", 0, 2, false, "", 0)
 player:GossipSendMenu(1, creature)
 end
 

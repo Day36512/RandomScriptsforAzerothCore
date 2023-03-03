@@ -4,8 +4,8 @@ local Patchqwerk = {}
 function Patchqwerk.OnSpawn(event, creature)
 -- Sends a yell message ("Patchqwerk make Lich King proud! You die now!")
 creature:SendUnitYell("Patchqwerk make Lich King proud! You die now!",0)
--- Casts spell 41924 on itself
-creature:CastSpell(creature, 41924, true)
+-- Casts spell 46587 on itself
+creature:CastSpell(creature, 46587, true)
 end
 
 -- This function is called repeatedly every 7 seconds when Patchqwerk is in combat.
@@ -76,8 +76,8 @@ creature:SendUnitYell("Patchqwerk go berserk!", 0)
 creature:CastSpell(creature, 41305, true)
 -- If its health rises above 95%,
 elseif (creature:HealthAbovePct(95)) then
--- Casts spell 41924
-creature:CastSpell(creature, 41924, true)
+-- Casts spell 46587
+creature:CastSpell(creature, 46587, true)
 end
 end
 

@@ -8,9 +8,9 @@ creature:CastSpell(creature, kingsSpell, true)
 end
 
 local function OnGossipHello(event, player, creature)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\spell_magic_magearmor:50:50:-43:0|tGrant me a Blessing of Kings", 0, 1, false, "", 0)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\spell_holy_sealofwisdom:50:50:-43:0|tGrant me a Blessing of Wisdom", 0, 2, false, "", 0)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\spell_holy_fistofjustice:50:50:-43:0|tGrant me a Blessing of Might", 0, 3, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\spell_magic_magearmor:50:50:-13:0|tGrant me a Blessing of Kings", 0, 1, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\spell_holy_sealofwisdom:50:50:-13:0|tGrant me a Blessing of Wisdom", 0, 2, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\spell_holy_fistofjustice:50:50:-13:0|tGrant me a Blessing of Might", 0, 3, false, "", 0)
 player:GossipSendMenu(1, creature)
 end
 

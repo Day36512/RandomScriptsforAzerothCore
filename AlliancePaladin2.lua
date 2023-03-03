@@ -29,7 +29,6 @@ creature:RegisterEvent(CastCS, 6000, 0)
 creature:RegisterEvent(CastCons, 8000, 0)
 creature:RegisterEvent(CastDS, 10000, 0)
 creature:RegisterEvent(CastJOL, 11000, 0)
-creature:RegisterEvent(CastAvengingWrath, 1, 1)
 end
 
 local function OnLeaveCombat(event, creature)

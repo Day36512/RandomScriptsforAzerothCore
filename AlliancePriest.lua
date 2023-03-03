@@ -8,9 +8,9 @@ creature:CastSpell(creature, lightwellSpell, true)
 end
 
 local function OnGossipHello(event, player, creature)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_SummonLightwell:50:50:-43:0|tCast Lightwell", 0, 1, false, "", 0)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_WordFortitude:50:50:-43:0|tCast Power Word: Fortitude", 0, 2, false, "", 0)
-player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_DivineSpirit:50:50:-43:0|tCast Divine Spirit", 0, 3, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_SummonLightwell:50:50:-13:0|tCast Lightwell", 0, 1, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_WordFortitude:50:50:-13:0|tCast Power Word: Fortitude", 0, 2, false, "", 0)
+player:GossipMenuAddItem(9, "|TInterface\\Icons\\Spell_Holy_DivineSpirit:50:50:-13:0|tCast Divine Spirit", 0, 3, false, "", 0)
 player:GossipSendMenu(1, creature)
 end
 
