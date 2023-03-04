@@ -1,6 +1,8 @@
+--fixed stupidity
+
 local Magmadar = {}
 
-local EMOTE_FRENZY = 0
+local EMOTE_FRENZY = 53
 
 local SPELL_FRENZY = 19451
 local SPELL_MAGMA_SPIT = 19449
@@ -18,13 +20,6 @@ local EVENT_LAVA_BOMB_RANGED = 4
 local EVENT_SUMMON_CORE_HOUND = 5
 
 local MELEE_TARGET_LOOKUP_DIST = 10.0
-
-function Magmadar.OnEnterCombat(event, creature, target)
-creature:RegisterEvent(Magmadar.Frenzy, 8500, 0)
-creature:RegisterEvent(Magmadar.Panic, 9500, 0)
-creature:RegisterEvent(Magmadar.LavaBomb, 12000, 0)
-creature:RegisterEvent(Magmadar.LavaBombRanged, 15000, 0)
-end
 
 function Magmadar.OnLeaveCombat(event, creature)
 creature:RemoveEvents()
