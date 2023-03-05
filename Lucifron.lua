@@ -2,15 +2,15 @@ local Lucifron = {}
 Lucifron.enrageCasted = false
 
 function Lucifron.CastImpendingDoom(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 19702, true)
+creature:CastSpell(creature:GetVictim(), 19702, false)
 end
 
 function Lucifron.CastLucifronCurse(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 19703, true)
+creature:CastSpell(creature:GetVictim(), 19703, false)
 end
 
 function Lucifron.CastShadowShock(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 20603, true)
+creature:CastSpell(creature:GetVictim(), 20603, false)
 end
 
 function Lucifron.CastFlamestrike(eventId, delay, calls, creature)

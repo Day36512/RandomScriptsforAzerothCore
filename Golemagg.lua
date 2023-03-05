@@ -8,7 +8,7 @@ creature:CastSpell(target, 20228, true)
 end
 
 function Golemagg.CastEarthquake(eventId, delay, calls, creature)
-creature:CastSpell(creature, 19798, true)
+creature:CastSpell(creature, 19798, false)
 creature:RegisterEvent(Golemagg.CastEarthquake, 17000, 0)
 end
 

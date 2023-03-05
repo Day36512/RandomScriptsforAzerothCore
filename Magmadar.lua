@@ -27,12 +27,12 @@ creature:RemoveEvents()
 end
 
 function Magmadar.Frenzy(event, delay, calls, creature)
-creature:CastSpell(creature, SPELL_FRENZY, true)
+creature:CastSpell(creature, SPELL_FRENZY, false)
 creature:SendUnitEmote("Magmadar goes into a killing Frenzy!")
 end
 
 function Magmadar.Panic(event, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), SPELL_PANIC, true)
+creature:CastSpell(creature:GetVictim(), SPELL_PANIC, false)
 end
 
 function Magmadar.LavaBomb(event, delay, calls, creature)
@@ -42,7 +42,7 @@ if targetCount > 0 then
 local targetIndex = math.random(1, targetCount)
 local target = targets[targetIndex]
 if target:GetDistance(creature) <= MELEE_TARGET_LOOKUP_DIST then
-creature:CastSpell(target, SPELL_LAVA_BOMB, true)
+creature:CastSpell(target, SPELL_LAVA_BOMB, false)
 end
 end
 end
@@ -51,7 +51,7 @@ function Magmadar.LavaBombRanged(event, delay, calls, creature)
 local targets = creature:GetPlayersInRange(100.0)
 for _, target in pairs(targets) do
 if target:GetDistance(creature) > MELEE_TARGET_LOOKUP_DIST then
-creature:CastSpell(target, SPELL_LAVA_BOMB_RANGED, true)
+creature:CastSpell(target, SPELL_LAVA_BOMB_RANGED, false)
 break
 end
 end

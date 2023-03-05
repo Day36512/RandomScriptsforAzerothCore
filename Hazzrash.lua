@@ -1,23 +1,23 @@
-Hazzrash = {}
+Hazzrash = {};
 
 function Hazzrash.CastArcaneBarage(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 44425, true)
+creature:CastSpell(creature:GetVictim(), 44425, false)
 end
 
 function Hazzrash.CastArcaneBlast(eventId, delay, calls, creature)
 local targets = creature:GetAITargets(10)
 local target = targets[math.random(#targets)]
-creature:CastSpell(target, 30451, true)
+creature:CastSpell(target, 30451, false)
 end
 
 function Hazzrash.CastChainBurn(eventId, delay, calls, creature)
 local targets = creature:GetAITargets(10)
 local target = targets[math.random(#targets)]
-creature:CastSpell(target, 8211, true)
+creature:CastSpell(target, 8211, false)
 end
 
 function Hazzrash.CastCrystalFlash(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 5106, true)
+creature:CastSpell(creature:GetVictim(), 5106, false)
 end
 
 function Hazzrash.CastEvocation(eventId, delay, calls, creature)
@@ -38,7 +38,7 @@ creature:RegisterEvent(Hazzrash.CastArcaneBarage, 6000, 0)
 creature:RegisterEvent(Hazzrash.CastArcaneBlast, 18000, 0)
 creature:RegisterEvent(Hazzrash.CastCrystalFlash, 25000, 0)
 creature:RegisterEvent(Hazzrash.CastChainBurn, 44000, 0)
-creature:RegisterEvent(Hazzrash.CastEvocation, 90000, 1)
+creature:RegisterEvent(Hazzrash.CastEvocation, 60000, 1)
 end
 
 function Hazzrash.OnLeaveCombat(event, creature)
