@@ -1,19 +1,27 @@
 local ABishop = {}
 
 local function CastHolyB(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 59700, true)
+if not creature:IsCasting() then
+creature:CastSpell(creature:GetVictim(), 59700, false)
+end
 end
 
 local function CastHolyFire(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 48134, true)
+if not creature:IsCasting() then
+creature:CastSpell(creature:GetVictim(), 48134, false)
+end
 end
 
 local function CastSWP(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 27605, true)
+if not creature:IsCasting() then
+creature:CastSpell(creature:GetVictim(), 27605, false)
+end
 end
 
 local function CastHV(eventId, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 37959, true)
+if not creature:IsCasting() then
+creature:CastSpell(creature:GetVictim(), 37959, false)
+end
 end
 
 local function OnEnterCombat(event, creature, target)
@@ -37,6 +45,13 @@ local function OnDied(event, creature, killer)
 creature:RemoveEvents()
 end
 
+function OnSpawn(event, creature)
+creature:SetMaxHealth(1321000)
+creature:SetMaxPower(0, 13400000)
+
+end
+
 RegisterCreatureEvent(1284, 1, OnEnterCombat)
 RegisterCreatureEvent(1284, 2, OnLeaveCombat)
 RegisterCreatureEvent(1284, 4, OnDied)
+RegisterCreatureEvent(1284, 5, OnSpawn)
