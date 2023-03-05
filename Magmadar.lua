@@ -1,6 +1,6 @@
 --fixed stupidity
 
-local Magmadar = {}
+local Magmadar = {};
 
 local SPELL_FRENZY = 19451
 local SPELL_PANIC = 19408
