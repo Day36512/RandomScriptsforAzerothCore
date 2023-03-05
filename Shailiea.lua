@@ -48,7 +48,7 @@ local sayings = {
 }
 local index = math.random(1, #sayings)
 creature:SendUnitSay(sayings[index], 0)
-creature:RegisterEvent(CastFD, 1, 1)
+creature:RegisterEvent(CastFD, 100, 1)
 creature:RegisterEvent(CastRoot, 10300, 0)
 creature:RegisterEvent(CastDisengage, 10400, 0)
 creature:RegisterEvent(CastRapidShot, 11000, 0)

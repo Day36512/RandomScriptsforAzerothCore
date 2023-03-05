@@ -22,6 +22,8 @@ local npcIds1 = {
 16423,
 16422,
 400036,
+400056,
+400049
 }
 
 -- Table to store NPC IDs for group 2

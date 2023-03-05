@@ -14,7 +14,7 @@ end
 
 local function OnEnterCombat(event, creature, target)
 	    creature:RegisterEvent(CastShoot, 750, 0)
-		creature:RegisterEvent(CastShoot, 15000, 0)
+		creature:RegisterEvent(CastSerpentSting, 15000, 0)
 		creature:RegisterEvent(CastMultiShot, 5000, 0)
 	end
 	
