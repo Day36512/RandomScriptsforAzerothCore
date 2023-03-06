@@ -3,7 +3,7 @@ local ALLOWED_MAPS = {
 1,
 }
 
-local ALLOWED_SPELLS = {100150, 100160}
+local ALLOWED_SPELLS = {100150, 100160, 10061}
 
 function table.indexOf(t, value)
 for k, v in ipairs(t) do

@@ -1,4 +1,4 @@
-local WolfRider = {}; 
+local WolfRider = {};
 
 local dialogues = {
 "For the Horde!",
@@ -17,7 +17,7 @@ local dialogues = {
 }
 
 local function OnSpawn(event, creature)
-local randomDialogue = dialogues[math.random(26)] -- Selects a random dialogue from the "dialogues" table
+local randomDialogue = dialogues[math.random(#dialogues)] -- Selects a random dialogue from the "dialogues" table
 creature:SendUnitYell(randomDialogue,0) -- Makes the creature yell the selected dialogue
 end
 

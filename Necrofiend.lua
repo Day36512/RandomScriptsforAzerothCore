@@ -2,14 +2,14 @@ local Necrofiend = {}
 
 function Necrofiend.OnEnterCombat(event, creature, target)
 creature:RegisterEvent(Necrofiend.WebSpray, 15000, 0)
-creature:RegisterEvent(CastBanefulPoison, 7000, 0)
+creature:RegisterEvent(Necrofiend.CastBanefulPoison, 7000, 0)
 end
 
-function Necrofiend.WebSpray(eventId, delay, calls, creature)
+function Necrofiend.WebSpray(event, delay, calls, creature)
 creature:CastSpell(creature:GetVictim(), 55508, true)
 end
 
-local function CastBanefulPoison(eventId, delay, calls, creature)
+function Necrofiend.CastBanefulPoison(event, delay, calls, creature)
 local targets = creature:GetAITargets(10)
 local target = targets[math.random(#targets)]
 creature:CastSpell(target, 15475, true)
