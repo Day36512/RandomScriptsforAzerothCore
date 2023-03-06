@@ -58,7 +58,7 @@ Config_ItemId[70] = 9314
 Config_ItemAmount[70] = 5
 
 -- General Settings Config
-local Config_mailText = 2           -- Which text to send in the mail to the player.
+local Config_mailText = 1           -- Which text to send in the mail to the player.
 local Config_senderGUID = 10667     -- GUID/ID of the Player/Creature. If Config_preventReturn = true then you need to put Creature ID. If it's false Player GUID. 0 = No sender aka "From: Unknown".
 local Config_mailStationery = 41    -- Stationary used in the mail sent to the player. (41 Normal Mail, 61 GM/Blizzard Support, 62 Auction, 64 Valentines, 65 Christmas) Note: Use 62, 64, and 65 At your own risk.
 local Config_maxGMRank = 0          -- Checks the player's assigned GM rank. Anything above the assigned default will not receive mail/be counted for the player counter. Default 0 - Players Only. Max 3 - All GMS/Mods/Etc will receive as well.
@@ -66,12 +66,12 @@ local Config_preventReturn = true   -- Modify's the Mail database to prevent ret
 
 -- Config_mailText == 1 Config
 local Config_mailSubject1 = "Dinkledork's reward for You!"
-local Config_mailText1 = "!\n\nYou've done well while advancing on ChromieCraft. Here is a small reward to celebrate your heroic deeds. Go forth!\n\nKind regards,\nChromie"
+local Config_mailText1 = "!\n\nYou've done well while advancing on your journies. Here is a small reward to celebrate your heroic deeds. Go forth!\n\nKind regards,\nDinkledork"
 -- Config_mailText == 2 Config
 local Config_mailSubject2 = "Dinkledork's reward for You!"
 local Config_mailText2A = " and congratulations! \n\nThe bronze Dragonflight would like to inform you that you were the "
 local Config_mailText2B = " adventurer to reach the "
-local Config_mailText2C = " level of mastery.\nYour adventures have made me take notice of you, take this small reward as a token of my appreciation.\nGo forth!\n\nKind regards,\nChromie"
+local Config_mailText2C = " level of mastery.\nYour adventures have made me take notice of you, take this small reward as a token of my appreciation.\nGo forth!\n\nKind regards,\nDinkledork"
 
 -- Name of Eluna dB scheme
 local Config_customDbName = 'ac_eluna';
