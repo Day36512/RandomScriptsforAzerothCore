@@ -28,9 +28,9 @@ creature:CastSpell(creature:GetVictim(), 50581, true)
 end
 
 local function OnEnterCombat(event, creature, target)
-creature:RegisterEvent(CastShadowBolt, math.random(5000, 8000), 0)
+creature:RegisterEvent(CastShadowBolt, math.random(8000, 12000), 0)
 creature:RegisterEvent(CastShadowBoltVolley, math.random(11000, 18000), 0)
-creature:RegisterEvent(CastRainOfFire, math.random(22000, 31000), 0)
+creature:RegisterEvent(CastRainOfFire, math.random(12000, 31000), 0)
 creature:RegisterEvent(CastCurseOfPain, math.random(13000, 18000), 0)
 creature:RegisterEvent(CastShadowMend, math.random(11000, 20000), 0)
 creature:RegisterEvent(CastShadowStrike, math.random(2000, 5000), 0)
@@ -46,7 +46,7 @@ end
 
 local function OnSpawn(event, creature)
 creature:SendUnitYell("You will submit to the power of the Lich King.", 0)
-creature:SetMaxHealth(812760)
+creature:SetMaxHealth(1812760)
 creature:CastSpell(creature, 17683, true)
 end
 

@@ -1,7 +1,7 @@
 local undeadDragon = {}
 
 function undeadDragon.OnSpawn(event, creature)
-creature:SetMaxHealth(5554119)
+creature:SetMaxHealth(8554119)
 creature:CanFly(true)
 creature:SetDisableGravity(true)
 creature:SetReactState(0)
@@ -17,7 +17,6 @@ creature:RegisterEvent(undeadDragon.CastSpell4, 6000, 0)
 creature:RegisterEvent(undeadDragon.CastSpell5, 23000, 0)
 creature:RegisterEvent(undeadDragon.CastSpell6, 35000, 0)
 creature:RegisterEvent(undeadDragon.CastBlizzard, 4000, 0)
-creature:RegisterEvent(undeadDragon.CastFlameBreath, 19000, 0) -- added event to cast Flame Breath every 19 seconds
 end
 
 function undeadDragon.OnLeaveCombat(event, creature)
@@ -90,12 +89,6 @@ end
 end
 end
 
-function undeadDragon.CastFlameBreath(event, delay, pCall, creature)
-local enemies = creature:GetUnfriendlyUnitsInRange(30)
-if not creature:IsCasting() and #enemies > 0 then
-creature:CastSpell(creature:GetVictim(), 100172, false) -- Frost Breath
-end
-end
 
 function undeadDragon.OnDeath(event, creature, killer)
 creature:RemoveEvents()

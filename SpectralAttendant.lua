@@ -29,6 +29,7 @@ creature:RemoveEvents()
 end
 
 function SpectralAttendant.OnDied(event, creature, killer)
+creature:RemoveCorpse()
 creature:RemoveEvents()
 end
 

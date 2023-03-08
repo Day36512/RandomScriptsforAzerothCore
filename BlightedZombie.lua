@@ -23,7 +23,8 @@ creature:RemoveEvents()
 end
 
 function BlightedZombie.OnDeath(event, creature, killer)
-creature:RemoveEvents()
+    creature:RemoveCorpse()
+    creature:RemoveEvents()
 end
 
 RegisterCreatureEvent(400051, 1, BlightedZombie.OnCombat)

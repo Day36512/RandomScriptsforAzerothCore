@@ -20,6 +20,7 @@ creature:RemoveEvents()
 end
 
 function Necrofiend.OnDied(event, creature, killer)
+creature:RemoveCorpse()
 creature:RemoveEvents()
 end
 

@@ -22,12 +22,6 @@ creature:CastSpell(creature:GetVictim(), 49999, true)
 end
 
 
-local function CastDeathGrip(eventId, delay, calls, creature)
-local targets = creature:GetAITargets(10)
-local target = targets[math.random(#targets)]
-creature:CastSpell(target, 49576, true)
-end
-
 local function CastAntiMagicShield(eventId, delay, calls, creature)
 creature:CastSpell(creature, 24021, true)
 end
@@ -40,7 +34,6 @@ local function OnEnterCombat(event, creature, target)
 creature:RegisterEvent(CastIcyTouch, 5000, 0)
 creature:RegisterEvent(CastPlagueStrike, 6000, 0)
 creature:RegisterEvent(CastDeathstrike, 25000, 0)
-creature:RegisterEvent(CastDeathGrip, 20000, 0)
 creature:RegisterEvent(CastBloodBoil, math.random(12000, 18000), 0)
 creature:RegisterEvent(CastDnD, 100, 1)
 end

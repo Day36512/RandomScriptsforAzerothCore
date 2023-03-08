@@ -25,6 +25,7 @@ creature:RemoveEvents()
 end
 
 function SkeletalWarlord.OnDied(event, creature, killer)
+creature:RemoveCorpse()
 creature:RemoveEvents()
 end
 

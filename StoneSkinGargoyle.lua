@@ -6,6 +6,9 @@ end
 
 local function StoneStomp(eventId, delay, calls, creature)
 local targets = creature:GetAITargets(10)
+if #targets == 0 then
+return
+end
 local target = targets[math.random(#targets)]
 creature:CastSpell(target, 49675, true)
 end
