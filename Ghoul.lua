@@ -24,7 +24,7 @@ local function OnLeaveCombat(event, creature)
 end
 
 local function OnDied(event, creature, killer)
-	creature:RemoveCorpse()
+	creature:DespawnOrUnsummon(5000)
     creature:RemoveEvents()
 end
 

@@ -30,12 +30,24 @@ local function CastAntiMagicZone(eventId, delay, calls, creature)
 creature:CastSpell(creature, 51052, true)
 end
 
+local function CastSpecialSpell(eventId, delay, calls, creature)
+  local victim = creature:GetVictim()
+  if not victim then
+    return
+  end
+  if victim:GetEntry() == 32666 or victim:GetEntry() == 32667 or victim:GetEntry() == 31144 or victim:GetEntry() == 31146 then
+    creature:CastSpell(victim, 5, true)
+  end
+end
+
+
 local function OnEnterCombat(event, creature, target)
 creature:RegisterEvent(CastIcyTouch, 5000, 0)
 creature:RegisterEvent(CastPlagueStrike, 6000, 0)
 creature:RegisterEvent(CastDeathstrike, 25000, 0)
 creature:RegisterEvent(CastBloodBoil, math.random(12000, 18000), 0)
 creature:RegisterEvent(CastDnD, 100, 1)
+creature:RegisterEvent(CastSpecialSpell, 1000, 0)
 end
 
 local function OnLeaveCombat(event, creature)

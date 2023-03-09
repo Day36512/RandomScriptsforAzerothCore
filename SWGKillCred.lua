@@ -12,7 +12,7 @@ function OnSpellCast(event, caster, spell)
             end
         end
         if not isValidTarget then
-            caster:SendBroadcastMessage("Invalid target for this spell.")
+            caster:SendBroadcastMessage("")
             spell:Cancel()
         else
             -- give kill credit to NPC ID 68

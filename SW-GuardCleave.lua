@@ -21,10 +21,16 @@ local function OnDied(event, creature, killer)
     creature:RemoveEvents()
 end
 
+local function OnSpawn(event, creature)
+creature:CastSpell(creature, 17683, true)
+end
+
 RegisterCreatureEvent(400013, 1, OnEnterCombat)
 RegisterCreatureEvent(400013, 2, OnLeaveCombat)
 RegisterCreatureEvent(400013, 4, OnDied)
+RegisterCreatureEvent(400013, 5, OnSpawn)
 
 RegisterCreatureEvent(400039, 1, OnEnterCombat)
 RegisterCreatureEvent(400039, 2, OnLeaveCombat)
 RegisterCreatureEvent(400039, 4, OnDied)
+RegisterCreatureEvent(400039, 5, OnSpawn)

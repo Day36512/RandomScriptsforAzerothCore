@@ -21,7 +21,7 @@ local mapId = player:GetMapId()
 if table.indexOf(ALLOWED_SPELLS, spellId) ~= -1 then
     if table.indexOf(ALLOWED_MAPS, mapId) == -1 then
         spell:Cancel()
-        player:SendBroadcastMessage("You cannot use that mount here.")
+        player:SendBroadcastMessage("You cannot use that here.")
     else
         if spellId == 100150 then
             player:PlayDirectSound(20428)

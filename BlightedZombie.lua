@@ -23,7 +23,7 @@ creature:RemoveEvents()
 end
 
 function BlightedZombie.OnDeath(event, creature, killer)
-    creature:RemoveCorpse()
+    creature:DespawnOrUnsummon(5000)
     creature:RemoveEvents()
 end
 

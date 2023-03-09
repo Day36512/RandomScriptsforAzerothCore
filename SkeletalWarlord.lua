@@ -25,15 +25,19 @@ creature:RemoveEvents()
 end
 
 function SkeletalWarlord.OnDied(event, creature, killer)
-creature:RemoveCorpse()
+creature:DespawnOrUnsummon(5000)
 creature:RemoveEvents()
 end
 
 function SkeletalWarlord.Charge(eventId, delay, calls, creature)
-local targets = creature:GetAITargets(SkeletalWarlord.minChargeRange)
-local target = targets[math.random(#targets)]
-creature:CastSpell(target, 19471, true)
+  local targets = creature:GetAITargets(SkeletalWarlord.minChargeRange)
+  if #targets == 0 then
+    return
+  end
+  local target = targets[math.random(#targets)]
+  creature:CastSpell(target, 19471, true)
 end
+
 
 RegisterCreatureEvent(400056, 5, SkeletalWarlord.OnSpawn)
 RegisterCreatureEvent(400056, 1, SkeletalWarlord.OnEnterCombat)
