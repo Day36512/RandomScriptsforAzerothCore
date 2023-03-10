@@ -5,7 +5,7 @@ Draven.ITEM_ID = 60114 -- replace with the ID of the item you want to give
 
 -- Register the gossip event for the NPC
 function Draven.OnGossipHello(event, player, creature)
-player:GossipMenuAddItem(0, "|TInterface\\Icons\\ability_stealth:50:50:-23:0|tPurchase 3 Stealth Potions.|r", 0, 1)
+player:GossipMenuAddItem(0, "|TInterface\\Icons\\ability_stealth:50:50:-23:0|tPurchase 3 Stealth Potions for 75 Silver.|r", 0, 1)
 player:GossipSendMenu(1, creature)
 end
 
@@ -27,10 +27,10 @@ end
 -- Send a unit yell when the NPC spawns
 function Draven.OnSpawn(event, creature)
 creature:SendUnitYell("", 0)
-creature:CastSpell(creature, 20374)
+creature:CastSpell(creature, 17683, true)
 end
 
 -- Register the gossip events with the NPC
-RegisterCreatureGossipEvent(nil, 1, Draven.OnGossipHello)
-RegisterCreatureGossipEvent(nil, 2, Draven.OnGossipSelect)
-RegisterCreatureEvent(nil, 5, Draven.OnSpawn)
+RegisterCreatureGossipEvent(400069, 1, Draven.OnGossipHello)
+RegisterCreatureGossipEvent(400069, 2, Draven.OnGossipSelect)
+RegisterCreatureEvent(400069, 5, Draven.OnSpawn)

@@ -1,3 +1,4 @@
+--lightning
 local npcIds1 = {
 8541,
 10417,
@@ -15,18 +16,18 @@ local npcIds1 = {
 400015,
 400016,
 300018,
-400029,
-400032,
 16383,
 16394,
 16423,
 16422,
 400036,
-400056,
-400049
+400049,
+400048,
+16437,
+16438
 }
 
--- Table to store NPC IDs for group 2
+-- Rez Visual
 local npcIds2 = {
 400013,
 400014,
@@ -37,7 +38,25 @@ local npcIds2 = {
 400019,
 400026,
 400027,
-400033
+400033,
+400070,
+400065,
+400042,
+400043
+}
+
+-- Shadowstep
+local npcIds3 = {
+400053,
+400069,
+400055,
+400052,
+400047,
+400056,
+400032,
+400029,
+400073,
+400072
 }
 
 -- Function to be executed when an NPC from group 1 is spawned
@@ -62,22 +81,28 @@ local spellId = 100133
 creature:CastSpell(creature, spellId, true) -- rez visual
 end
 
--- Function to be executed when an NPC from both groups leaves combat
-local function CastSpellOnLeaveCombat(event, creature)
+-- Function to be executed when an NPC from group 3 is spawned
+local function CastSpellOnSpawnGroup3(event, creature)
 if not creature then
 print("Error: creature was not set!")
 return
 end
+
+local spellId = 51908
+creature:CastSpell(creature, spellId, true) -- shadowstep cosmetic
 end
 
 -- Register the event for NPCs in group 1
 for _, npcId in ipairs(npcIds1) do
 RegisterCreatureEvent(npcId, 5, CastSpellOnSpawnGroup1)
-RegisterCreatureEvent(npcId, 21, CastSpellOnLeaveCombat)
 end
 
 -- Register the event for NPCs in group 2
 for _, npcId in ipairs(npcIds2) do
 RegisterCreatureEvent(npcId, 5, CastSpellOnSpawnGroup2)
-RegisterCreatureEvent(npcId, 21, CastSpellOnLeaveCombat)
+end
+
+-- Register the event for NPCs in group 3
+for _, npcId in ipairs(npcIds3) do
+RegisterCreatureEvent(npcId, 5, CastSpellOnSpawnGroup3)
 end

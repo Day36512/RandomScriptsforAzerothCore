@@ -11,13 +11,15 @@ local function OnGossipSelect(event, player, item, sender, intid, code)
 if (sender == 150) then
 -- Show Scourge Event menu
 player:GossipMenuAddItem(0, "|TInterface\\icons\\spell_misc_emotionhappy:37:37:-23|t|cff007d45Start Event for Bonus Lich Runes|r", 100, 0)
-player:GossipMenuAddItem(0, "|TInterface\\icons\\spell_misc_emotionsad:37:37:-23|t|cffC41F3BStop Event but Die and Suffer|r", 101, 0)
+player:GossipMenuAddItem(0, "|TInterface\\icons\\spell_misc_emotionsad:37:37:-23|t|cffC41F3BStop Event but Suffer|r", 101, 0)
 player:GossipMenuAddItem(0, "Back", 0, 0)
 player:GossipSendMenu(1, item)
 return
 elseif (sender == 100) then
 -- Start the event
-if not IsGameEventActive(17) then
+if IsGameEventActive(17) then
+player:SendBroadcastMessage("The Scourge event is already active.")
+else
 player:AddItem(43949, 2)
 StartGameEvent(17, true)
 player:PlayDirectSound(14797)
@@ -25,7 +27,9 @@ end
 player:GossipComplete()
 elseif (sender == 101) then
 -- Stop the event
-if IsGameEventActive(17) then
+if not IsGameEventActive(17) then
+player:SendBroadcastMessage("The Scourge event is not currently active.")
+else
 StopGameEvent(17, true)
 player:CastSpell(player, 15007, true)
 player:RemoveItem(43949, 2)
