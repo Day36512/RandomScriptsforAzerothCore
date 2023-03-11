@@ -1,11 +1,12 @@
 local RShredder = {};
 
 function RShredder.OnSpawn(event, creature)
-	creature:CastSpell(creature, 17683, true)
+	creature:CastSpell(creature, 100169, true)
+	creature:SetReactState(0)
 end
 
 function RShredder.OnDied(event, creature)
-	creature:RemoveCorpse()
+	creature:DespawnOrUnsummon(5000)
     creature:RemoveEvents()
 end
 

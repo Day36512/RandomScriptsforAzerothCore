@@ -13,10 +13,10 @@ creature:CastSpell(creature, 17683, true)
 
 creature:RegisterEvent(undeadDragon.CastSpell2, 15000, 0)
 creature:RegisterEvent(undeadDragon.CastSpell3, 3500, 0)
-creature:RegisterEvent(undeadDragon.CastSpell4, 6000, 0)
+creature:RegisterEvent(undeadDragon.CastSpell4, 7000, 0)
 creature:RegisterEvent(undeadDragon.CastSpell5, 23000, 0)
 creature:RegisterEvent(undeadDragon.CastSpell6, 35000, 0)
-creature:RegisterEvent(undeadDragon.CastBlizzard, 4000, 0)
+creature:RegisterEvent(undeadDragon.CastBlizzard, 5000, 0)
 end
 
 function undeadDragon.OnLeaveCombat(event, creature)
@@ -50,7 +50,7 @@ function undeadDragon.CastSpell4(event, delay, pCall, creature)
 -- Get all creatures with NPC ID 400058 within 100 yards of the undead dragon
 local targets = creature:GetCreaturesInRange(100, 400058)
 if targets ~= nil then
--- Pick 4 random targets from the list of creatures
+-- Pick 3 random targets from the list of creatures
 for i = 1, math.min(3, #targets) do
 local target = targets[math.random(1, #targets)]
 -- Cast Frozen Orb on the random target
