@@ -1,11 +1,6 @@
 local SkeletalWarlord = {}
 SkeletalWarlord.minChargeRange = 10
 
-function SkeletalWarlord.OnSpawn(event, creature)
-creature:SetMaxHealth(54353)
-creature:CastSpell(creature, 17683, true)
-end
-
 function SkeletalWarlord.OnEnterCombat(event, creature, target)
 creature:RegisterEvent(SkeletalWarlord.Whirlwind, 15000, 0)
 creature:RegisterEvent(SkeletalWarlord.MortalStrike, 7000, 0)
@@ -25,7 +20,7 @@ creature:RemoveEvents()
 end
 
 function SkeletalWarlord.OnDied(event, creature, killer)
-creature:DespawnOrUnsummon(5000)
+creature:DespawnOrUnsummon(15000)
 creature:RemoveEvents()
 end
 
@@ -39,10 +34,15 @@ function SkeletalWarlord.Charge(eventId, delay, calls, creature)
 end
 
 
-RegisterCreatureEvent(400056, 5, SkeletalWarlord.OnSpawn)
+
 RegisterCreatureEvent(400056, 1, SkeletalWarlord.OnEnterCombat)
 RegisterCreatureEvent(400056, 2, SkeletalWarlord.OnLeaveCombat)
 RegisterCreatureEvent(400056, 4, SkeletalWarlord.OnDied)
+
+
+RegisterCreatureEvent(1788, 1, SkeletalWarlord.OnEnterCombat)
+RegisterCreatureEvent(1788, 2, SkeletalWarlord.OnLeaveCombat)
+RegisterCreatureEvent(1788, 4, SkeletalWarlord.OnDied)
 
 
 

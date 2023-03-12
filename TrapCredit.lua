@@ -4,6 +4,8 @@ local NPC_ID = 400034 -- The ID of the NPC you want players to get kill credit f
 local ALLOWED_ZONES = {
     1519, -- SW City
 	12,	
+	14,
+	1637
 }
 
 -- List of allowed spell IDs
@@ -32,7 +34,7 @@ function OnPlayerCastSpell(event, player, spell)
     if table.indexOf(ALLOWED_SPELLS, spellId) ~= -1 then
         if table.indexOf(ALLOWED_ZONES, zoneId) == -1 then
             spell:Cancel()
-            player:SendBroadcastMessage("You cannot cast this spell in this area.")
+            player:SendBroadcastMessage("You cannot use that here.")
         else
             player:KilledMonsterCredit(NPC_ID)
             player:SendBroadcastMessage("You have successfuly placed a trap!")

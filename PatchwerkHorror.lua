@@ -27,7 +27,7 @@ end
 
 local function OnEnterCombat(event, creature, target)
 	    creature:RegisterEvent(AcidSpit, 7000, 0)
-		creature:RegisterEvent(CastBludgeoningStrike, 14000, 0)
+		creature:RegisterEvent(CastBludgeoningStrike, 13000, 0)
 		creature:RegisterEvent(CastSpecialSpell, 1000, 0)
 	end
 	

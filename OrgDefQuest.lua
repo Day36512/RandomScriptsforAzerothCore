@@ -1,12 +1,12 @@
-local SWG_ID = {68, 400013, 400033, 400014, 1976}
-local SPELL_ID = 100141
+local ORG_ID = {3296, 400039, 400040, 400041, 400045, 400059, 400060, 400061, 400070, 400071}
+local SPELL_ID = 100193
 
 function OnSpellCast(event, caster, spell)
 local target = spell:GetTarget()
 if target and spell:GetEntry() == SPELL_ID then
 local isValidTarget = false
-for _, swgID in ipairs(SWG_ID) do
-if target:GetEntry() == swgID then
+for _, orgID in ipairs(ORG_ID) do
+if target:GetEntry() == orgID then
 isValidTarget = true
 break
 end
@@ -15,11 +15,11 @@ if not isValidTarget then
 caster:SendBroadcastMessage("That target is not valid.")
 spell:Cancel()
 elseif target:HasAura(SPELL_ID) then
-caster:SendBroadcastMessage("Target has already been empowered.")
+caster:SendBroadcastMessage("You've already used the Shadow-Drenched Cloth on that defender!")
 spell:Cancel()
 else
--- give kill credit to NPC ID 68
-caster:KilledMonsterCredit(68)
+-- give kill credit to NPC ID 3296
+caster:KilledMonsterCredit(3296)
 end
 end
 end

@@ -1,13 +1,8 @@
 local BlightedZombie = {}
 
-function BlightedZombie.OnSpawn(event, creature)
-creature:SetMaxHealth(17720)
-creature:CastSpell(creature:GetVictim(), 17683, true)
-end
-
 function BlightedZombie.OnCombat(event, creature, target)
 creature:RegisterEvent(BlightedZombie.Ability1, 7000, 0)
-creature:RegisterEvent(BlightedZombie.Ability2, 14000, 0)
+creature:RegisterEvent(BlightedZombie.Ability2, 12000, 0)
 end
 
 function BlightedZombie.Ability1(event, delay, calls, creature)
@@ -23,13 +18,12 @@ creature:RemoveEvents()
 end
 
 function BlightedZombie.OnDeath(event, creature, killer)
-    creature:DespawnOrUnsummon(5000)
     creature:RemoveEvents()
 end
 
-RegisterCreatureEvent(400051, 1, BlightedZombie.OnCombat)
-RegisterCreatureEvent(400051, 2, BlightedZombie.OnLeaveCombat)
-RegisterCreatureEvent(400051, 4, BlightedZombie.OnDeath)
-RegisterCreatureEvent(400051, 5, BlightedZombie.OnSpawn)
+RegisterCreatureEvent(4475, 1, BlightedZombie.OnCombat)
+RegisterCreatureEvent(4475, 2, BlightedZombie.OnLeaveCombat)
+RegisterCreatureEvent(4475, 4, BlightedZombie.OnDeath)
+
 
 
