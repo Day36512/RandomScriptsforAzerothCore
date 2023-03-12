@@ -1,4 +1,6 @@
---Needs lots and lots of work.
+--Needs lots and lots of work. Register health check to event 9. 
+--Add true false statements to check if he's reached below 50.
+--Don't remove events unnecessarily 
 
 local AbominableGreench = {};
 
