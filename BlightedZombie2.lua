@@ -24,6 +24,3 @@ end
 RegisterCreatureEvent(4475, 1, BlightedZombie.OnCombat)
 RegisterCreatureEvent(4475, 2, BlightedZombie.OnLeaveCombat)
 RegisterCreatureEvent(4475, 4, BlightedZombie.OnDeath)
-
-
-

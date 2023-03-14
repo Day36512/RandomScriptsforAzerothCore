@@ -24,10 +24,10 @@ function OnSpellCast(event, caster, spell)
             end
         end
 
-        -- If the target is not a valid NPC
-        if not isValidTarget then
+        -- If the target is not a valid NPC or if the target's health is greater than 90%
+        if not isValidTarget or target:GetHealthPct() > 90 then
             -- Send a broadcast message to the player
-            caster:SendBroadcastMessage("Invalid target.")
+            caster:SendBroadcastMessage("That defender is doing fine. Find one that needs more help!")
             -- Cancel the spell
             spell:Cancel()
         else

@@ -67,11 +67,18 @@ function UndeadWarlord.OnDied(event, creature, killer)
 end
 
 function UndeadWarlord.OnSpawn(event, creature)
+	creature:SetMaxHealth(48420)
+	creature:CastSpell(creature:GetVictim(), 17683, true)
   if creature == nil or not creature:IsInWorld() then return end
   creature:SendUnitYell("Quickly servants! The Master expects swift results.", 0)
   creature:CastSpell(creature, 59711, true)
-  creature:RegisterEvent(function () creature:CastSpell(creature, 59711, true) end, 5000, 0)
+creature:RegisterEvent(function (eventId, delay, calls, creature)
+  if creature == nil or not creature:IsInWorld() then return end
+  creature:CastSpell(creature, 59711, true)
+end, 15000, 0)
 end
+
+
 
 RegisterCreatureEvent(300018, 1, UndeadWarlord.OnEnterCombat)
 RegisterCreatureEvent(300018, 2, UndeadWarlord.OnLeaveCombat)
