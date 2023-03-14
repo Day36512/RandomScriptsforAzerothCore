@@ -15,10 +15,12 @@ end
 --First Gossip Screen for NPC
 function OnFirstTalk(event, player, unit)
   if player:GetLevel() == 1 then
+    player:PlayDistanceSound(20431)
     player:GossipMenuAddItem(0, "Looking for a challenge? Click here to try hardcore mode!", 0, 1)
     player:GossipSendMenu(1, unit)
   else
     player:SendBroadcastMessage("You must be level 1 to access hardcore mode.")
+	player:PlayDistanceSound(20432)
     player:GossipComplete()
   end
 end
@@ -26,6 +28,7 @@ end
 --Selection for NPC gossip
 function OnSelect(event, player, unit, sender, intid, code)
   if intid == 1 then
+	player:PlayDistanceSound(20433)
     player:GossipMenuAddItem(0, "Just double checking to make sure that you want to turn on hardcore mode. This will lock the character after death to be no longer playable, remove all your current gold, remove bonus starter items and Murky will no longer be with you! I will likely be adding rewards for reaching certain stages of the game later...", 0, 2)
     player:GossipMenuAddItem(0, "NO TAKE ME BACK!", 0, 3)
     player:GossipSendMenu(2, unit)
@@ -35,6 +38,7 @@ end
 --if player chooses to do hardcore they receive the token and have custom items and Murky removed
 function OnHardCore(event, player, unit, sender, intid, code)
   if intid == 2 then
+	player:PlayDistanceSound(20434)
     player:AddItem(90000, 1)
     player:SetCoinage(0)
     player:RemoveItem(60002, player:GetItemCount(60002))
@@ -44,6 +48,7 @@ function OnHardCore(event, player, unit, sender, intid, code)
     --else gossip ends
   else
     player:GossipComplete()
+	player:PlayDistanceSound(20434)
   end
 end
 
