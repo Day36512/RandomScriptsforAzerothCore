@@ -11,7 +11,7 @@ player:SendBroadcastMessage("You need to place the barrier in a more strategic l
 spell:Cancel()
 else
 player:KilledMonsterCredit(killCreditNpcId)
-player:SendBroadcastMessage("You have successfully placed the barrier and received kill credit for NPC " .. killCreditNpcId .. ".")
+player:SendBroadcastMessage("You have successfully built a barrier!")
 end
 end
 end
