@@ -1,8 +1,8 @@
 local npcid = 190016
 local lavacore = 17011
-local Red = {28458, 228459, 228461, 228462}
-local Blue = {228464, 229465, 229466}
-local Yellow = {228467, 228468, 229470}
+local Red = {28458, 28459, 28461, 28462}
+local Blue = {28464, 28465, 28466}
+local Yellow = {28467, 28468, 28470}
 
 local function PurchaseRedGem(event, player, creature, sender, intid, code, menu_id)
 if (intid == 1) then
