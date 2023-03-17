@@ -71,6 +71,7 @@ creature:RegisterEvent(CastBellowingRoar, 33000, 0)
 end
 
 local function OnLeaveCombat(event, creature)
+healthCheck = false
 creature:RemoveEvents()
 end
 

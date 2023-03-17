@@ -18,7 +18,7 @@ creature:RemoveEvents()
 end
 
 function SkeletalWarrior.OnDeath(event, creature, killer)
-    creature:DespawnOrUnsummon(5000)
+    creature:DespawnOrUnsummon(10000)
     creature:RemoveEvents()
 end
 
