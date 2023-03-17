@@ -20,7 +20,9 @@ end
 
 -- Remove Murky
 local function removeSpell(player)
-player:RemoveSpell(24939)
+	player:RemoveSpell(24939)
+	player:RemoveSpell(100117)
+	player:RemoveSpell(100118)
 end
 
 -- Script body

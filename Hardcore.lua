@@ -46,7 +46,7 @@ function OnHardCore(event, player, unit, sender, intid, code)
     player:RemoveItem(65000, player:GetItemCount(65000))
 	player:RemoveSpell(24939)
 	player:RemoveSpell(100117)
-	player:RemoveSpell(100117)
+	player:RemoveSpell(100118)
     --else gossip ends
   else
     player:GossipComplete()
