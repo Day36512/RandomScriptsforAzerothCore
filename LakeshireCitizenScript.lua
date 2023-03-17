@@ -2,14 +2,16 @@ local NPC_ENTRY1 = 400080
 local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -55,16 +57,19 @@ RegisterCreatureEvent(NPC_ENTRY1, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY2 = 400082
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -109,20 +114,22 @@ RegisterCreatureEvent(NPC_ENTRY2, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY3 = 400083
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
-
 
 local function OnGossipSelect(event, player, creature, sender, intid, code)
     if (intid == 1) then
@@ -163,16 +170,19 @@ RegisterCreatureEvent(NPC_ENTRY3, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY4 = 400084
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -217,16 +227,19 @@ RegisterCreatureEvent(NPC_ENTRY4, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY5 = 400085
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -271,16 +284,19 @@ RegisterCreatureEvent(NPC_ENTRY5, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY6 = 400086
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -325,16 +341,19 @@ RegisterCreatureEvent(NPC_ENTRY6, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY7 = 400087
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -379,16 +398,19 @@ RegisterCreatureEvent(NPC_ENTRY7, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY8 = 400088
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -433,16 +455,19 @@ RegisterCreatureEvent(NPC_ENTRY8, 3, OnDeath)
 ------------------------------------------------------------------------------------
 
 local NPC_ENTRY9 = 400089
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -485,12 +510,19 @@ RegisterCreatureEvent(NPC_ENTRY9, 5, OnSpawn)
 RegisterCreatureEvent(NPC_ENTRY9, 3, OnDeath)
 
 local NPC_ENTRY10 = 849
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
+        if questStatus == 4 then
+            player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
+        else
+            player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
+        end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -520,16 +552,19 @@ RegisterCreatureGossipEvent(NPC_ENTRY10, 2, OnGossipSelect)
 
 
 local NPC_ENTRY11 = 848
+local REQUIRED_QUEST_ID = 30011
 
 local function OnGossipHello(event, player, creature)
+    local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
     if not player:HasQuest(REQUIRED_QUEST_ID) then
-        if player:HasQuestFailed(REQUIRED_QUEST_ID) then
+        if questStatus == 4 then
             player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
         else
             player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
         end
         return
     end
+
     player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
     player:GossipSendMenu(1, creature)
 end
@@ -557,3 +592,73 @@ end
 
 RegisterCreatureGossipEvent(NPC_ENTRY11, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ENTRY11, 2, OnGossipSelect)
+
+------------------
+
+local NPC_ENTRY11 = 381
+local REQUIRED_QUEST_ID = 30011
+local GAME_EVENT_ID = 17
+
+local function ShowGossipMenu(player, creature)
+    player:GossipMenuAddItem(0, "The scourge are coming! Please head to the inn!", 0, 1)
+    player:GossipSendMenu(1, creature)
+end
+
+local function OnGossipHello(event, player, creature)
+    if IsGameEventActive(GAME_EVENT_ID) then
+        if not player:HasQuest(REQUIRED_QUEST_ID) then
+            local questStatus = player:GetQuestStatus(REQUIRED_QUEST_ID)
+            if questStatus == 4 then
+                player:SendBroadcastMessage("Your time ran out, and you have failed this quest...")
+            else
+                player:SendBroadcastMessage("You must be on a certain quest to interact with this person.")
+            end
+            return
+        end
+
+        ShowGossipMenu(player, creature)
+    end
+end
+
+local function OnGossipSelect(event, player, creature, sender, intid, code)
+    if (intid == 1) then
+        player:GossipComplete()
+        player:KilledMonsterCredit(NPC_ENTRY1)
+        local random = math.random(0, 4)
+        if random == 0 then
+            creature:SendUnitSay("Mommmmy!!!!", 0)
+        elseif random == 1 then
+            creature:SendUnitSay("But I wanted to go play with Sally...", 0)
+        elseif random == 2 then
+            creature:SendUnitSay("Really? Stay indoors? How boring...", 0)
+        elseif random == 3 then
+            creature:SendUnitSay("Darn those yucky Scourge...", 0)
+        else
+            creature:SendUnitSay("Awww, no fun!", 0)
+        end
+        creature:DespawnOrUnsummon(1000) -- Despawn after 1 second (1000 milliseconds)
+    end
+end
+
+local function OnGameEventStart(event, gameEventId)
+    if gameEventId == GAME_EVENT_ID then
+        local creatures = GetWorld():GetCreaturesByEntry(NPC_ENTRY11)
+        for _, creature in ipairs(creatures) do
+            creature:SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP)
+        end
+    end
+end
+
+local function OnGameEventStop(event, gameEventId)
+    if gameEventId == GAME_EVENT_ID then
+        local creatures = GetWorld():GetCreaturesByEntry(NPC_ENTRY11)
+        for _, creature in ipairs(creatures) do
+            creature:RemoveFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP)
+        end
+    end
+end
+
+RegisterCreatureGossipEvent(NPC_ENTRY11, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NPC_ENTRY11, 2, OnGossipSelect)
+RegisterServerEvent(34, OnGameEventStart)
+RegisterServerEvent(35, OnGameEventStop)
