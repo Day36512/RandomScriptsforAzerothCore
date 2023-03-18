@@ -56,7 +56,9 @@ local npcIds3 = {
 400032,
 400029,
 400073,
-400072
+400072,
+400102,
+400103
 }
 
 -- Function to be executed when an NPC from group 1 is spawned
