@@ -4,6 +4,7 @@ local secondNpcIds = {3088} -- Add your second set of NPC entries here
 local EMOTE_ID = 333 -- Set the emote ID
 local SECOND_EMOTE_ID = 214 -- Set the second emote ID
 
+
 local function IsGameEventActive(eventId)
     local activeEvents = GetActiveGameEvents()
     for _, event in ipairs(activeEvents) do
@@ -42,7 +43,6 @@ local function ResetNpcsEmoteState(event, gameEventId)
     end
 end
 
-local PLAYER_EVENT_ON_MAP_CHANGE = 27
 
 local function OnPlayerMapChange(event, player, newMap, newZone)
     if IsGameEventActive(GAME_EVENT_ID) then
@@ -51,11 +51,6 @@ local function OnPlayerMapChange(event, player, newMap, newZone)
     end
 end
 
-RegisterPlayerEvent(PLAYER_EVENT_ON_MAP_CHANGE, OnPlayerMapChange)
-
--- The rest of the script remains the same
-
-
-
+RegisterPlayerEvent(27, OnPlayerMapChange)
 RegisterServerEvent(34, SetNpcsEmoteState)
 RegisterServerEvent(35, ResetNpcsEmoteState)
