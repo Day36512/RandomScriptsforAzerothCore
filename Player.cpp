@@ -89,7 +89,7 @@
 #include "Tokenize.h"
 #include "StringConvert.h"
 
-// TODO: this import is not necessary for compilation and marked as unused by the IDE
+/// @todo: this import is not necessary for compilation and marked as unused by the IDE
 //  however, for some reasons removing it would cause a damn linking issue
 //  there is probably some underlying problem with imports which should properly addressed
 //  see: https://github.com/azerothcore/azerothcore-wotlk/issues/9766
@@ -487,7 +487,7 @@ void Player::CleanupsBeforeDelete(bool finalCleanup)
 bool Player::Create(ObjectGuid::LowType guidlow, CharacterCreateInfo* createInfo)
 {
     // FIXME: outfitId not used in player creating
-    // TODO: need more checks against packet modifications
+    /// @todo: need more checks against packet modifications
     // should check that skin, face, hair* are valid via DBC per race/class
     // also do it in Player::BuildEnumData, Player::LoadFromDB
 
@@ -870,7 +870,7 @@ void Player::HandleDrowning(uint32 time_diff)
             {
                 m_MirrorTimer[BREATH_TIMER] += 1 * IN_MILLISECONDS;
                 // Calculate and deal damage
-                // TODO: Check this formula
+                /// @todo: Check this formula
                 uint32 damage = GetMaxHealth() / 5 + urand(0, GetLevel() - 1);
                 EnvironmentalDamage(DAMAGE_DROWNING, damage);
             }
@@ -939,7 +939,7 @@ void Player::HandleDrowning(uint32 time_diff)
             {
                 m_MirrorTimer[FIRE_TIMER] += 1 * IN_MILLISECONDS;
                 // Calculate and deal damage
-                // TODO: Check this formula
+                /// @todo: Check this formula
                 uint32 damage = urand(600, 700);
                 if (m_MirrorTimerFlags & UNDERWATER_INLAVA)
                     EnvironmentalDamage(DAMAGE_LAVA, damage);
@@ -1878,7 +1878,7 @@ void Player::Regenerate(Powers power)
 
     uint32 curValue = GetPower(power);
 
-    // TODO: possible use of miscvalueb instead of amount
+    /// @todo: possible use of miscvalueb instead of amount
     if (HasAuraTypeWithMiscvalue(SPELL_AURA_PREVENT_REGENERATE_POWER, power + 1))
         return;
 
@@ -3298,7 +3298,7 @@ bool Player::_addSpell(uint32 spellId, uint8 addSpecMask, bool temporary, bool l
                 continue;
             }
 
-            // @todo confirm if rogues start wth lockpicking skill at level 1 but only recieve the spell to use it at level 16
+           /// @todo confirm if rogues start wth lockpicking skill at level 1 but only recieve the spell to use it at level 16
             // Added for runeforging, it is confirmed via sniff that this happens when death knights learn the spell, not on character creation.
             if ((_spell_idx->second->AcquireMethod == SKILL_LINE_ABILITY_LEARNED_ON_SKILL_LEARN && !HasSkill(pSkill->id)) || ((pSkill->id == SKILL_LOCKPICKING || pSkill->id == SKILL_RUNEFORGING) && _spell_idx->second->TrivialSkillLineRankHigh == 0))
             {
@@ -5174,7 +5174,7 @@ void Player::GetDodgeFromAgility(float& diminishing, float& nondiminishing)
     if (!dodgeRatio || pclass > MAX_CLASSES)
         return;
 
-    // TODO: research if talents/effects that increase total agility by x% should increase non-diminishing part
+    /// @todo: research if talents/effects that increase total agility by x% should increase non-diminishing part
     float base_agility = GetCreateStat(STAT_AGILITY) * m_auraModifiersGroup[UNIT_MOD_STAT_START + static_cast<uint16>(STAT_AGILITY)][BASE_PCT];
     float bonus_agility = GetStat(STAT_AGILITY) - base_agility;
 
@@ -7155,7 +7155,11 @@ void Player::ApplyItemEquipSpell(Item* item, bool apply, bool form_change)
             continue;
 
         // Spells that should stay on the caster after removing the item.
-        constexpr std::array<int32, 1> spellExceptions = { /*Electromagnetic Gigaflux Reactivator*/ 11826 };
+        constexpr std::array<int32, 2> spellExceptions =
+        {
+            11826,  //Electromagnetic Gigaflux Reactivator
+            17490   //Book of the Dead - Summon Skeleton
+        };
         const auto found = std::find(std::begin(spellExceptions), std::end(spellExceptions), spellData.SpellId);
 
         // wrong triggering type
@@ -8976,7 +8980,7 @@ Pet* Player::SummonPet(uint32 entry, float x, float y, float z, float ang, PetTy
         // Generate a new name for the newly summoned ghoul
         if (pet->IsPetGhoul())
         {
-            std::string new_name = sObjectMgr->GeneratePetName(entry);
+            std::string new_name = sObjectMgr->GeneratePetNameLocale(entry, GetSession()->GetSessionDbLocaleIndex());
             if (!new_name.empty())
                 pet->SetName(new_name);
         }
@@ -9328,32 +9332,47 @@ Pet* Player::CreatePet(uint32 creatureEntry, uint32 spellID /*= 0*/)
     return pet;
 }
 
-void Player::StopCastingCharm()
+void Player::StopCastingCharm(Aura* except /*= nullptr*/)
 {
     Unit* charm = GetCharm();
     if (!charm)
+    {
         return;
+    }
 
     if (charm->GetTypeId() == TYPEID_UNIT)
     {
         if (charm->ToCreature()->HasUnitTypeMask(UNIT_MASK_PUPPET))
+        {
             ((Puppet*)charm)->UnSummon();
+        }
         else if (charm->IsVehicle())
+        {
             ExitVehicle();
+        }
     }
+
     if (GetCharmGUID())
-        charm->RemoveCharmAuras();
+    {
+        charm->RemoveAurasByType(SPELL_AURA_MOD_CHARM, ObjectGuid::Empty, except);
+        charm->RemoveAurasByType(SPELL_AURA_MOD_POSSESS_PET, ObjectGuid::Empty, except);
+        charm->RemoveAurasByType(SPELL_AURA_MOD_POSSESS, ObjectGuid::Empty, except);
+        charm->RemoveAurasByType(SPELL_AURA_AOE_CHARM, ObjectGuid::Empty, except);
+    }
 
     if (GetCharmGUID())
     {
         LOG_FATAL("entities.player", "Player {} ({} is not able to uncharm unit ({})", GetName(), GetGUID().ToString(), GetCharmGUID().ToString());
+
         if (charm->GetCharmerGUID())
         {
             LOG_FATAL("entities.player", "Charmed unit has charmer {}", charm->GetCharmerGUID().ToString());
             ABORT();
         }
         else
+        {
             SetCharm(charm, false);
+        }
     }
 }
 
@@ -10955,7 +10974,6 @@ void Player::AddSpellAndCategoryCooldowns(SpellInfo const* spellInfo, uint32 ite
     // cooldown information stored in item prototype
     // This used in same way in WorldSession::HandleItemQuerySingleOpcode data sending to client.
 
-    bool useSpellCooldown = spellInfo->HasAttribute(SPELL_ATTR7_CAN_BE_MULTI_CAST);
     if (itemId)
     {
         if (ItemTemplate const* proto = sObjectMgr->GetItemTemplate(itemId))
@@ -10967,12 +10985,6 @@ void Player::AddSpellAndCategoryCooldowns(SpellInfo const* spellInfo, uint32 ite
                     cat    = proto->Spells[idx].SpellCategory;
                     rec    = proto->Spells[idx].SpellCooldown;
                     catrec = proto->Spells[idx].SpellCategoryCooldown;
-
-                    if (static_cast<int32>(cat) != catrec)
-                    {
-                        useSpellCooldown = true;
-                    }
-
                     break;
                 }
             }
@@ -11009,14 +11021,7 @@ void Player::AddSpellAndCategoryCooldowns(SpellInfo const* spellInfo, uint32 ite
 
         // Now we have cooldown data (if found any), time to apply mods
         if (rec > 0)
-        {
-            int32 oldRec = rec;
             ApplySpellMod(spellInfo->Id, SPELLMOD_COOLDOWN, rec, spell);
-            if (oldRec != rec)
-            {
-                useSpellCooldown = true;
-            }
-        }
 
         if (catrec > 0 && !spellInfo->HasAttribute(SPELL_ATTR6_NO_CATEGORY_COOLDOWN_MODS))
         {
@@ -11029,7 +11034,6 @@ void Player::AddSpellAndCategoryCooldowns(SpellInfo const* spellInfo, uint32 ite
             if (HasSpell(spellInfo->Id))
             {
                 needsCooldownPacket = true;
-                useSpellCooldown = true;
                 rec += cooldownMod * IN_MILLISECONDS;   // SPELL_AURA_MOD_COOLDOWN does not affect category cooldows, verified with shaman shocks
             }
         }
@@ -11049,11 +11053,11 @@ void Player::AddSpellAndCategoryCooldowns(SpellInfo const* spellInfo, uint32 ite
     // category spells
     if (cat && catrec > 0)
     {
-        _AddSpellCooldown(spellInfo->Id, cat, itemId, useSpellCooldown ? recTime : catrecTime, true, true);
+        _AddSpellCooldown(spellInfo->Id, 0, itemId, recTime, true, true);
         if (needsCooldownPacket)
         {
             WorldPacket data;
-            BuildCooldownPacket(data, SPELL_COOLDOWN_FLAG_NONE, spellInfo->Id, useSpellCooldown ? recTime : catrecTime);
+            BuildCooldownPacket(data, SPELL_COOLDOWN_FLAG_NONE, spellInfo->Id, recTime);
             SendDirectMessage(&data);
         }
 
@@ -13087,7 +13091,7 @@ PartyResult Player::CanUninviteFromGroup(ObjectGuid targetPlayerGUID) const
         if (grp->isRollLootActive())
             return ERR_PARTY_LFG_BOOT_LOOT_ROLLS;
 
-        // TODO: Should also be sent when anyone has recently left combat, with an aprox ~5 seconds timer.
+        /// @todo: Should also be sent when anyone has recently left combat, with an aprox ~5 seconds timer.
         for (GroupReference const* itr = grp->GetFirstMember(); itr != nullptr; itr = itr->next())
             if (itr->GetSource() && itr->GetSource()->IsInMap(this) && itr->GetSource()->IsInCombat())
                 return ERR_PARTY_LFG_BOOT_IN_COMBAT;
@@ -13223,15 +13227,15 @@ bool ItemPosCount::isContainedIn(ItemPosCountVec const& vec) const
     return false;
 }
 
-void Player::StopCastingBindSight()
+void Player::StopCastingBindSight(Aura* except /*= nullptr*/)
 {
     if (WorldObject* target = GetViewpoint())
     {
         if (target->isType(TYPEMASK_UNIT))
         {
-            ((Unit*)target)->RemoveAurasByType(SPELL_AURA_BIND_SIGHT, GetGUID());
-            ((Unit*)target)->RemoveAurasByType(SPELL_AURA_MOD_POSSESS, GetGUID());
-            ((Unit*)target)->RemoveAurasByType(SPELL_AURA_MOD_POSSESS_PET, GetGUID());
+            ((Unit*)target)->RemoveAurasByType(SPELL_AURA_BIND_SIGHT, GetGUID(), except);
+            ((Unit*)target)->RemoveAurasByType(SPELL_AURA_MOD_POSSESS, GetGUID(), except);
+            ((Unit*)target)->RemoveAurasByType(SPELL_AURA_MOD_POSSESS_PET, GetGUID(), except);
         }
     }
 }
@@ -13701,8 +13705,9 @@ uint32 Player::CalculateTalentsPoints() const
         }
     }
 
+
     talentPointsForLevel += m_extraBonusTalentCount;
-    if (talentPointsForLevel > 71) talentPointsForLevel = 71;
+    if (talentPointsForLevel > 51) talentPointsForLevel = 51;
     return uint32(talentPointsForLevel * sWorld->getRate(RATE_TALENT));
 }
 
@@ -15320,7 +15325,7 @@ void Player::ActivateSpec(uint8 spec)
     for (AuraList::iterator iter = scAuras.begin(); iter != scAuras.end();)
     {
         Aura* aura = *iter;
-        if (!HasActiveSpell(aura->GetId()) && !HasTalent(aura->GetId(), GetActiveSpec()))
+        if (!HasActiveSpell(aura->GetId()) && !HasTalent(aura->GetId(), GetActiveSpec()) && !aura->GetCastItemGUID())
         {
             aura->Remove();
             iter = scAuras.begin();
@@ -16412,4 +16417,9 @@ std::string Player::GetDebugInfo() const
     std::stringstream sstr;
     sstr << Unit::GetDebugInfo();
     return sstr.str();
+}
+
+void Player::SendSystemMessage(std::string_view msg, bool escapeCharacters)
+{
+    ChatHandler(GetSession()).SendSysMessage(msg, escapeCharacters);
 }
