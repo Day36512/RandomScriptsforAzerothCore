@@ -1,4 +1,4 @@
-
+--PLEASE NOTE THAT RAID BUFFS ARE DISABLED IN RAIDS BY DEFAULT
 ------------------------------------------------------------------------------------------------
 -- COMMAND GUIDE  
 -- .raidbuff ony 

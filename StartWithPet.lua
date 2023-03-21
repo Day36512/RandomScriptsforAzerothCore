@@ -2,7 +2,7 @@
 -- HUNTER START WITH PET MOD
 ------------------------------------------------------------------------------------------------
 
-local EnableModule   = true   -- Enable module
+local EnableModule   = false   -- Enable module
 local AnnounceModule = true   -- Announce module on player login ?
 
 local LoadFromDB     = true   -- true  : Load beasts automatically from the database
