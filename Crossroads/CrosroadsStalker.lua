@@ -6,11 +6,11 @@ local SPELL_EVASION = 5277
 local SPELL_GOUGE = 12540
 local SPELL_CAST_DEATH = 5
 
-local function CastSinisterStrike(creature)
+local function CastSinisterStrike(eventId, delay, calls, creature)
     creature:CastSpell(creature:GetVictim(), SPELL_SINISTER_STRIKE, false)
 end
 
-local function CastGouge(creature)
+local function CastGouge(eventId, delay, calls, creature)
     creature:CastSpell(creature:GetVictim(), SPELL_GOUGE, false)
 end
 

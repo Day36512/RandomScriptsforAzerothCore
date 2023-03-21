@@ -2,7 +2,7 @@ local NPC_HORDE_GUARD = 400105
 
 local SPELL_REND = 6547
 
-local function CastRend(creature)
+local function CastRend(eventId, delay, calls, creature)
     creature:CastSpell(creature:GetVictim(), SPELL_REND, true)
 end
 

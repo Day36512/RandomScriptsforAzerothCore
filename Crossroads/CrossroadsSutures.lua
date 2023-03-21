@@ -2,7 +2,7 @@ local NPC_SUTURES = 400113
 
 local SPELL_CLEAVE = 15496
 local SPELL_DISEASE_CLOUD = 30122
-local SPELL_ABOMINATION_SLAM = 40546
+local SPELL_ABOMINATION_SLAM = 1464
 
 local YELL_COMBAT_DIALOGUE = {
     "Sutures smash!",
@@ -12,16 +12,16 @@ local YELL_COMBAT_DIALOGUE = {
     "Sutures crush you!"
 }
 
-local function CastCleave(creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_CLEAVE, false)
+local function CastCleave(eventId, delay, calls, creature)
+    creature:CastSpell(creature:GetVictim(), SPELL_CLEAVE, true)
 end
 
-local function CastDiseaseCloud(creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_DISEASE_CLOUD, false)
+local function CastDiseaseCloud(eventId, delay, calls, creature)
+    creature:CastSpell(creature:GetVictim(), SPELL_DISEASE_CLOUD, true)
 end
 
-local function CastAbominationSlam(creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_ABOMINATION_SLAM, false)
+local function CastAbominationSlam(eventId, delay, calls, creature)
+    creature:CastSpell(creature:GetVictim(), SPELL_ABOMINATION_SLAM, true)
 end
 
 local function Sutures_OnEnterCombat(event, creature, target)

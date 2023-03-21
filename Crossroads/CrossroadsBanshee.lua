@@ -5,11 +5,11 @@ local SPELL_BANSHEE_SCREAM = 41150
 local SPELL_SHADOW_BOLT = 9613
 local SPELL_CAST_DEATH = 5
 
-local function CastShadowBolt(creature)
+local function CastShadowBolt(eventId, delay, calls, creature)
     creature:CastSpell(creature:GetVictim(), SPELL_SHADOW_BOLT, true)
 end
 
-local function CastBansheeScream(creature)
+local function CastBansheeScream(eventId, delay, calls, creature)
     creature:CastSpell(creature:GetVictim(), SPELL_BANSHEE_SCREAM, true)
 end
 
