@@ -1,4 +1,4 @@
-local NPC_CAPTAIN_RATTLEBONES = 400115
+local NPC_CAPTAIN_RATTLEBONES = 401116
 
 local SPELL_SHADOW_BOLT = 20791
 local SPELL_CURSE_OF_THE_PIRATE_KING = 70542
@@ -15,40 +15,39 @@ local YELL_AGGRO_DIALOGUE = {
 
 local YELL_DEATH_DIALOGUE = "Me ship...me crew...I be joinin' ye soon..."
 
-local function CastShadowBolt(creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_SHADOW_BOLT, false)
+local function CastShadowBolt(eventId, delay, calls, creature)
+    creature:CastSpell(creature:GetVictim(), SPELL_SHADOW_BOLT, true)
 end
 
-local function CastCurseOfThePirateKing(creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_CURSE_OF_THE_PIRATE_KING, false)
+local function CastCurseOfThePirateKing(eventId, delay, calls, creature)
+    creature:CastSpell(creature:GetVictim(), SPELL_CURSE_OF_THE_PIRATE_KING, true)
 end
 
-local function CastPiratesCleave(creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_PIRATES_CLEAVE, false)
+local function CastPiratesCleave(eventId, delay, calls, creature)
+    creature:CastSpell(creature:GetVictim(), SPELL_PIRATES_CLEAVE, true)
 end
 
-local function CastCannonballBarrage(creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_CANNONBALL_BARRAGE, false)
+local function CastCannonballBarrage(eventId, delay, calls, creature)
+    creature:CastSpell(creature:GetVictim(), SPELL_CANNONBALL_BARRAGE, true)
 end
 
 local function CaptainRattlebones_OnEnterCombat(event, creature, target)
     creature:SendUnitYell(YELL_AGGRO_DIALOGUE[math.random(1, #YELL_AGGRO_DIALOGUE)], 0)
-    creature:RegisterEvent(CastShadowBolt, math.random(2000, 4000), 0)
-    creature:RegisterEvent(CastCurseOfThePirateKing, math.random(10000, 15000), 0)
-    creature:RegisterEvent(CastPiratesCleave, math.random(6000, 10000), 0)
-    creature:RegisterEvent(CastCannonballBarrage, math.random(15000, 20000), 0)
+    creature:RegisterEvent(CastShadowBolt, 3000, 0)
+    creature:RegisterEvent(CastCurseOfThePirateKing, 12000, 0)
+    creature:RegisterEvent(CastPiratesCleave, 8000, 0)
+    creature:RegisterEvent(CastCannonballBarrage, 18000, 0)
 end
 
 local function CaptainRattlebones_OnLeaveCombat(event, creature)
-    creature:RemoveEvents() -- Remove events when leaving combat
+    creature:RemoveEvents()
 end
 
 local function CaptainRattlebones_OnDied(event, creature, killer)
-    creature:RemoveEvents() -- Remove events when died
+    creature:RemoveEvents()
     creature:SendUnitSay(YELL_DEATH_DIALOGUE, 0)
 end
 
 RegisterCreatureEvent(NPC_CAPTAIN_RATTLEBONES, 1, CaptainRattlebones_OnEnterCombat)
 RegisterCreatureEvent(NPC_CAPTAIN_RATTLEBONES, 2, CaptainRattlebones_OnLeaveCombat)
 RegisterCreatureEvent(NPC_CAPTAIN_RATTLEBONES, 4, CaptainRattlebones_OnDied)
-
