@@ -22,55 +22,55 @@ end
 
 function Alleria.CastRapidShot(event, delay, calls, creature)
 	local victim = creature:GetVictim()
-	if not creature:IsCasting() or creature:IsCastingSpell(71251) then
+	if not creature:IsCasting() or creature:IsCasting(71251) then
 		creature:CastSpell(victim, 71251, true)
 	end
 end
 
 function Alleria.CastShoot(event, delay, calls, creature)
 	local victim = creature:GetVictim()
-	if not creature:IsCasting() or not creature:IsCastingSpell(71251) then
+	if not creature:IsCasting() or not creature:IsCasting(71251) then
 		creature:CastSpell(victim, 39079, true)
 	end
 end
 
 function Alleria.CastMultiShot(event, delay, calls, creature)
 	local victim = creature:GetVictim()
-	if not creature:IsCasting() or not creature:IsCastingSpell(71251) then
+	if not creature:IsCasting() or not creature:IsCasting(71251) then
 		creature:CastSpell(victim, 59713, false)
 	end
 end
 
 function Alleria.CastExplosiveShot(event, delay, calls, creature)
 	local victim = creature:GetVictim()
-	if not creature:IsCasting() or not creature:IsCastingSpell(71251) then
+	if not creature:IsCasting() or not creature:IsCasting(71251) then
 		creature:CastSpell(victim, 60053, false)
 	end
 end
 
 function Alleria.CastBlackArrow(event, delay, calls, creature)
 	local victim = creature:GetVictim()
-	if not creature:IsCasting() or not creature:IsCastingSpell(71251) then
+	if not creature:IsCasting() or not creature:IsCasting(71251) then
 		creature:CastSpell(victim, 63672, false)
 	end
 end
 
 function Alleria.CastDisengage(event, delay, calls, creature)
 	local victim = creature:GetVictim()
-	if not creature:IsCasting() or not creature:IsCastingSpell(71251) then
+	if not creature:IsCasting() or not creature:IsCasting(71251) then
 		creature:CastSpell(victim, 57635, false)
 	end
 end
 
 function Alleria.CastFD(event, delay, calls, creature)
-	if not creature:IsCasting() or not creature:IsCastingSpell(71251) then
+	if not creature:IsCasting() or not creature:IsCasting(71251) then
 creature:CastSpell(creature, 23604, false)
 end
 end
 
 function Alleria.CastRoot(event, delay, calls, creature)
 local victim = creature:GetVictim()
-if not creature:IsCasting() or not creature:IsCastingSpell(71251) then
+if not creature:IsCasting() or not creature:IsCasting(71251) then
 creature:CastSpell(victim, 50762, false)
 end
 end
