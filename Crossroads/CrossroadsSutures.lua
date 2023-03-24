@@ -34,11 +34,11 @@ local function Sutures_OnEnterCombat(event, creature, target)
 end
 
 local function Sutures_OnLeaveCombat(event, creature)
-    creature:RemoveEvents() -- Remove events when leaving combat
+    creature:RemoveEvents() 
 end
 
 local function Sutures_OnDied(event, creature, killer)
-    creature:RemoveEvents() -- Remove events when died
+    creature:RemoveEvents() 
     creature:SendUnitSay("Sutures...fall...", 0)
 end
 

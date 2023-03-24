@@ -7,11 +7,11 @@ local SPELL_GOUGE = 12540
 local SPELL_CAST_DEATH = 5
 
 local function CastSinisterStrike(eventId, delay, calls, creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_SINISTER_STRIKE, false)
+    creature:CastSpell(creature:GetVictim(), SPELL_SINISTER_STRIKE, true)
 end
 
 local function CastGouge(eventId, delay, calls, creature)
-    creature:CastSpell(creature:GetVictim(), SPELL_GOUGE, false)
+    creature:CastSpell(creature:GetVictim(), SPELL_GOUGE, true)
 end
 
 local function CastSpellOnTarget(creature, targetNPC)

@@ -12,7 +12,7 @@ local function HordeGuard_OnEnterCombat(event, creature, target)
 end
 
 local function HordeGuard_OnLeaveCombat(event, creature)
-    creature:RemoveEvents() -- Remove events when leaving combat
+    creature:RemoveEvents() 
     creature:EmoteState(375)
 end
 
