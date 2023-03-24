@@ -1,5 +1,10 @@
 function MurkyOnSpawn(event, creature)
-    local playerName = creature:GetOwner():GetName()
+local owner = creature:GetOwner()
+if not owner then
+    return
+end
+local playerName = owner:GetName()
+
     local dialogue = {
         "Mrglglglgl! Murky here, reporting for duty!",
         "Mrrrrrrrglglglgl! Murky happy to serve you, " .. playerName .. "!",
