@@ -10,7 +10,7 @@ creature:RegisterEvent(BlisteringZombie.Ability1, 8000, 0)
 end
 
 function BlisteringZombie.Ability1(event, delay, calls, creature)
-creature:CastSpell(creature:GetVictim(), 55604, true)
+creature:CastSpell(creature:GetVictim(), 64153, true)
 end
 
 function BlisteringZombie.OnLeaveCombat(event, creature)

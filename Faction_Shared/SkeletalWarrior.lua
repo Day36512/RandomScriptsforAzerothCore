@@ -1,7 +1,10 @@
 local SkeletalWarrior = {}
 
+
+
 function SkeletalWarrior.OnSpawn(event, creature)
 creature:SetMaxHealth(7720)
+creature:SetEquipmentSlots(10570, 0, 0)
 creature:CastSpell(creature:GetVictim(), 17683, true)
 end
 
