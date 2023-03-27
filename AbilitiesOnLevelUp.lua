@@ -1,14 +1,14 @@
 ------------------------------------------------------------------------------------------------
 -- AUTO LEARN SKILLS MOD
 ------------------------------------------------------------------------------------------------
-local EnableModule = false
-local AnnounceModule = true -- Announce module on player login ?
+local EnableModule = false -- Set to true to enable
+local AnnounceModule = false -- Announce module on player login ?
 
 local MaxLevel = false -- Set to true to enable max level skills instantly when login
 local MaxPlayerLevel = 80 -- Max player level change to your liking.
 
-local AutoDualSpec = true -- Auto learn Dual Specialization
-local AutoRiding = true -- Auto learn Riding
+local AutoDualSpec = false -- Auto learn Dual Specialization
+local AutoRiding = false -- Auto learn Riding
 
 local NorthrendFlyLevel = 68 -- Which level to learn Cold Weather Flying
 --
