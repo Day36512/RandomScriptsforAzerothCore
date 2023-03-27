@@ -1,3 +1,4 @@
+local TREE_CREATURE_ID = 400091 
 local GOSSIP_OPTION_CUT_TREE = 1
 local LOG_ITEM_ID = 60116
 local BARRIERS_BUILT_QUEST_ID = 30012
@@ -8,6 +9,7 @@ function OnCreatureSpawn(event, creature)
 end
 
 function OnGossipHello(event, player, creature)
+ if creature == nil or creature:GetEntry() ~= TREE_CREATURE_ID then return end
     if player:IsMounted() then
         player:SendBroadcastMessage("You must dismount first!")
         return
