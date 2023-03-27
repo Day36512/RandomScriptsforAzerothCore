@@ -1,7 +1,7 @@
-local ItemEntry = 65000 -- Hearthstone. You can change this item ID to whatever.
+local ItemEntry = 65000 -- Dinklestone. You can change this item ID to whatever as long as it has a spell. Please see items to remove if you're not using my server,
 
 local T = {
-	[1] = { "|TInterface\\icons\\achievement_pvp_h_h:37:37:-23|t|cff610B0BHorde Cities|r", 1,
+	[1] = {"|TInterface\\icons\\achievement_pvp_h_h:37:37:-23|t|cff610B0BHorde Cities|r", 1,
 		{"|TInterface\\icons\\achievement_zone_durotar:37:37:-23|t|cff610B0BOrgrimmar|r", 1, 1503, -4415.5, 22, 0},
 		{"|TInterface\\icons\\achievement_zone_tirisfalglades_01:37:37:-23|t|cff610B0BUndercity|r", 0, 1831, 238.5, 61.6, 0},
 		{"|TInterface\\icons\\achievement_zone_mulgore_01:37:37:-23|t|cff610B0BThunderbluff|r", 1, -1278, 122, 132, 0},
@@ -17,7 +17,7 @@ local T = {
 		{"|TInterface\\icons\\achievement_reputation_wyrmresttemple:37:37:-23|t|cff642EFEShattrath|r", 530, -1838.16, 5301.79, -12.428, 0},
 		{"|TInterface\\icons\\achievement_reputation_kirintor:37:37:-23|t|cff642EFEDalaran|r", 571, 5804.15, 624.771, 647.767, 0},
 	},
-	[3] = { "|TInterface\\icons\\achievement_bg_winwsg:37:37:-23|t|cffC41F3BPvP Locations|r", 2,
+	[3] = {"|TInterface\\icons\\achievement_bg_winwsg:37:37:-23|t|cffC41F3BPvP Locations|r", 2,
 		{"Gurubashi Arena", 0, -13229, 226, 33, 1},
 		{"Dire Maul Arena", 1, -3669, 1094, 160, 3},
 		{"Nagrand Arena", 530, -1983, 6562, 12, 2},
@@ -60,6 +60,38 @@ local T = {
 		{"Icecrown Citadel", 571, 5873.82, 2110.98, 636.011, 3.5523},
 		{"Ruby Sanctum", 571, 3600.5, 197.34, -113.76, 5.29905},
 	},
+	[7] = { "|TInterface\\icons\\inv_misc_head_human_01:37:37:-23|t|cffFFFFFFMorphs|r", 2,
+	{"Demorph", 0},
+    {"Sally", 2043},
+    {"New Thrall", 4527},
+    {"Old Thrall", 27656},
+    {"Cairne", 4307},
+    {"Velen", 17822},
+    {"Sylvanas", 28213},
+    {"Vol'jin", 10357},
+    {"Anduin", 11655},
+    {"Magni", 3597},
+    {"Tyrande", 7274},
+    {"Jaina", 2970},
+    {"Varian", 28127},
+    {"Bolvar", 5566},
+    {"Old Tirion", 9477},
+    {"New Tirion", 31011},
+    {"Vereesa", 28222},
+    {"Rhonin", 16024},
+    {"Putress", 27611},
+    {"Alexstrasza", 28227},
+    {"Chromie", 24877},
+    {"Arthas", 24949},
+    {"Lich King", 22234},
+    {"Saurfang", 14732},
+    {"Onyxia", 8570},
+    {"Nefarian", 9472},
+    {"Dark Ranger", 30073},
+    {"Millhouse", 19942},
+	{"Alleria - Dinkle Server Only", 70019}, -- remove me if not using my server
+	{"Turalyon - Dinkle Server Only", 400018}, -- remove me if not using my server
+},
 }
 
 local function OnGossipHello(event, player, item)
@@ -79,7 +111,7 @@ local function OnGossipSelect(event, player, item, sender, intid, code)
         return
     end
 
-    if (intid == 0) then
+    if intid == 0 then
         -- Show teleport menu
         for i, v in ipairs(T[sender]) do
             if (i > 2) then
@@ -89,6 +121,19 @@ local function OnGossipSelect(event, player, item, sender, intid, code)
         player:GossipMenuAddItem(0, "Back", 0, 0)
         player:GossipSendMenu(1, item)
         return
+    elseif sender == 7 then
+    -- Morph the player
+    local morphName, morphID = table.unpack(T[sender][intid])
+    if morphID == 0 then
+        -- Demorph
+        player:SetDisplayId(player:GetNativeDisplayId())
+    else
+        -- Morph
+        player:SetDisplayId(morphID)
+        player:CastSpell(player, 51908, true) -- Cast the morph spell
+    end
+    player:GossipComplete()
+    return
     else
         -- teleport
         local name, map, x, y, z, o = table.unpack(T[sender][intid])
@@ -97,6 +142,7 @@ local function OnGossipSelect(event, player, item, sender, intid, code)
     
     player:GossipComplete()
 end
+
 
 RegisterItemGossipEvent(ItemEntry, 1, OnGossipHello)
 RegisterItemGossipEvent(ItemEntry, 2, OnGossipSelect)
