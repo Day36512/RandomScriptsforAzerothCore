@@ -1,6 +1,7 @@
 local undeadDragon = {}
 
 function undeadDragon.OnSpawn(event, creature)
+creature:DespawnOrUnsummon(3600000) 
 creature:SetMaxHealth(8554119)
 creature:CanFly(true)
 creature:SetDisableGravity(true)
@@ -18,6 +19,13 @@ creature:RegisterEvent(undeadDragon.CastSpell5, 23000, 0)
 creature:RegisterEvent(undeadDragon.CastSpell6, 35000, 0)
 creature:RegisterEvent(undeadDragon.CastBlizzard, 5000, 0)
 end
+
+function undeadDragon.SpawnCreatureOnDeath(creature)
+    local x, y, z, o = creature:GetLocation()
+    creature:SpawnCreature(400121, x, y, z, o, 3, 1800000) -- Spawn 400121 for 30 minutes
+end
+
+
 
 function undeadDragon.OnLeaveCombat(event, creature)
 creature:SetRegeneratingHealth(false)
@@ -91,7 +99,8 @@ end
 
 
 function undeadDragon.OnDeath(event, creature, killer)
-creature:RemoveEvents()
+	creature:RemoveEvents()
+    undeadDragon.SpawnCreatureOnDeath(creature)
 end
 
 RegisterCreatureEvent(400035, 5, undeadDragon.OnSpawn)

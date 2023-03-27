@@ -74,6 +74,7 @@ end
 
 
 function UndeadWarlord.OnSpawn(event, creature)
+creature:SetEquipmentSlots(41383, 0 ,0)
 creature:SetMaxHealth(48420)
 creature:CastSpell(creature:GetVictim(), 17683, true)
 if creature == nil or not creature:IsInWorld() then return end

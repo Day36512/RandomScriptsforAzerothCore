@@ -33,6 +33,7 @@ end
 
 local function Banshee_OnDied(event, creature, killer)
     creature:RemoveEvents()
+	creature:DespawnOrUnsummon(10000)
 end
 
 RegisterCreatureEvent(NPC_BANSHEE, 1, Banshee_OnEnterCombat)
