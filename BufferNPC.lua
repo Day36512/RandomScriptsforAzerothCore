@@ -1,5 +1,6 @@
 -- place in game with .npc add 400117
 
+local ENABLE_BUFF_NPC = true -- Set this to true to enable BufferNPC, false to disable
 local NPCID = 400117
 local ANNOUNCE_MODULE = true
 local BUFF_BY_LEVEL = true
@@ -135,16 +136,18 @@ for _, buff in ipairs(vecBuffs) do
     player:CastSpell(player, buff, true)
 end
 end
-
-
     creature:SendUnitSay(PickWhisper(PlayerName), 0)
     creature:PerformEmote(71) 
     player:GossipComplete()
 end
 
 local function OnGossipHello(event, player, creature)
-    player:GossipMenuAddItem(0, "|TInterface\\icons\\spell_misc_emotionhappy:43:43:-33|t|cff007d45Buff me!|r", 1, 1)
-    player:GossipSendMenu(1, creature)
+    if ENABLE_BUFF_NPC then
+        player:GossipMenuAddItem(0, "|TInterface\\icons\\spell_misc_emotionhappy:43:43:-33|t|cff007d45Buff me!|r", 1, 1)
+        player:GossipSendMenu(1, creature)
+    else
+        player:SendBroadcastMessage("You must Enable BufferNPC in lua_scripts to speak with this NPC.")
+    end
 end
 
 

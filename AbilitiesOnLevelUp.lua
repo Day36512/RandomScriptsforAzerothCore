@@ -1,6 +1,7 @@
 ------------------------------------------------------------------------------------------------
 -- AUTO LEARN SKILLS MOD
 ------------------------------------------------------------------------------------------------
+-- Please note that I may have missed a few spells here and there. If so let me know but it's also a good idea to check with your trainer on occasion anyway.
 local EnableModule = false -- Set to true to enable
 local AnnounceModule = false -- Announce module on player login ?
 
