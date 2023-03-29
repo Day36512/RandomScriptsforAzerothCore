@@ -38,7 +38,7 @@ Golemagg.enraged[creature:GetGUID()] = nil
 end
 
 function Golemagg.OnSpawn(event, creature)
-creature:SetMaxHealth(1652176)
+--creature:SetMaxHealth(1652176)
 Golemagg.enraged[creature:GetGUID()] = false
 end
 

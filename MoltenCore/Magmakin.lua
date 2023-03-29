@@ -36,7 +36,7 @@ end
 
 function Magmakin.OnSpawn(event, creature)
 creature:SetMaxPower(0, 10000000)
-creature:SetMaxHealth(349000)
+--creature:SetMaxHealth(349000)
 end
 
 RegisterCreatureEvent(12806, 1, Magmakin.OnEnterCombat)

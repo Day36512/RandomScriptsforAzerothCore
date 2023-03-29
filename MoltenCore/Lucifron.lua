@@ -43,7 +43,7 @@ end
 end
 
 function Lucifron.OnSpawn(event, creature)
-creature:SetMaxHealth(748000)
+--creature:SetMaxHealth(748000)
 end
 
 RegisterCreatureEvent(12118, 1, Lucifron.OnEnterCombat)

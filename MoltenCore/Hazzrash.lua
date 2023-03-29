@@ -50,7 +50,7 @@ creature:RemoveEvents()
 end
 
 function Hazzrash.OnSpawn(event, creature)
-creature:SetMaxHealth(563000)
+--creature:SetMaxHealth(563000)
 end
 
 RegisterCreatureEvent(83000, 1, Hazzrash.OnEnterCombat)

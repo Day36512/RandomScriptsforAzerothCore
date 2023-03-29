@@ -41,7 +41,7 @@ creature:RemoveEvents()
 end
 
 function Gehennas.OnSpawn(event, creature)
-creature:SetMaxHealth(648000)
+--creature:SetMaxHealth(648000)
 end
 
 RegisterCreatureEvent(12259, 1, Gehennas.OnEnterCombat)
