@@ -9,14 +9,23 @@ local SPAWN_TYPE = 3
 local DESPAWN_TIMER = 200000 
 local CAST_SPELL_ID = 67040 
 local CAST_SPELL_ID2 = 32826
+local CAST_SPELL_ID3 = 100231
+local CAST_SPELL_DELAY3 = 120000
 
 local function CastSpellWithDelay(event, delay, calls, creature)
     creature:CastSpell(creature, CAST_SPELL_ID, false)
+	creature:CastSpell(creature, 46565, true)
 end
 
 local function CastSpellPolyVis(event, delay, calls, creature)
     creature:CastSpell(creature, CAST_SPELL_ID2, false)
 	creature:CastSpell(creature, 72523, true)
+end
+
+local function CastSpellOnSelfAfterDelay(event, delay, calls, creature)
+    creature:CastSpell(creature, CAST_SPELL_ID3, true)
+	creature:RemoveAllAuras()
+	creature:RemoveEvents()
 end
 
 local function OnQuestAccept(event, player, creature, quest)
@@ -25,6 +34,7 @@ local function OnQuestAccept(event, player, creature, quest)
         creature:SetReactState(0) 
 		creature:RegisterEvent(CastSpellPolyVis, 17000, 1)
         creature:RegisterEvent(CastSpellWithDelay, 18200, 1) 
+        creature:RegisterEvent(CastSpellOnSelfAfterDelay, CAST_SPELL_DELAY3, 1)
         local x, y, z, o = creature:GetLocation()
         for i = 1, 5 do
             local randomX = x + math.random(-4, 4)

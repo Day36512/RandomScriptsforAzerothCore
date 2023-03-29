@@ -1,7 +1,7 @@
 local BlightedZombie = {}
 
 function BlightedZombie.OnSpawn(event, creature)
-creature:SetMaxHealth(17720)
+--creature:SetMaxHealth(17720)
 creature:CastSpell(creature:GetVictim(), 17683, true)
 end
 

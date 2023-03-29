@@ -18,10 +18,6 @@ local messages = {
 	"The blood of our enemies will water the fields of our glory!",
 	"This land is ours, and we will defend it with our lives!",
 	"We are the Horde, and we know no fear!",
-
-
-
-
 }
 
 

@@ -37,18 +37,9 @@ local function OnDied(event, creature, killer)
     creature:RemoveEvents()
 end
 
-local function OnWaypointReached(event, creature)
-    if math.random(1, 100) <= 50 then -- 50% chance to spawn 400019
-        local x, y, z, o = creature:GetLocation()
-        local xOffset = math.random(-10, 10)
-        local yOffset = math.random(-10, 10)
-        local nx, ny, nz = x + xOffset, y + yOffset, z
-        creature:SpawnCreature(400119, nx, ny, nz, o, 3, 200000)
-    end
-end
 
 RegisterCreatureEvent(400029, 1, OnEnterCombat)
 RegisterCreatureEvent(400029, 2, OnLeaveCombat)
 RegisterCreatureEvent(400029, 4, OnDied)
 RegisterCreatureEvent(400029, 5, OnSpawn)
-RegisterCreatureEvent(400029, 6, OnWaypointReached)
+

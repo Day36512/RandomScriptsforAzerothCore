@@ -13,10 +13,10 @@ creature:CastSpell(creature, 47496, true)
 end
 
 local function OnEnterCombat(event, creature, target)
-	    creature:RegisterEvent(CastLeap, 100, 1)
-		creature:RegisterEvent(CastPlague, 100, 1)
-		creature:RegisterEvent(CastPlague, 20000, 0)
-		creature:RegisterEvent(CastExplode, 23000, 0)
+	creature:RegisterEvent(CastLeap, 100, 1)
+	creature:RegisterEvent(CastPlague, 100, 1)
+	creature:RegisterEvent(CastPlague, 20000, 0)
+	creature:RegisterEvent(CastExplode, 23000, 0)
 	end
 	
 local function OnLeaveCombat(event, creature)

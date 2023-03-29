@@ -2,7 +2,7 @@ local ENABLED = true -- set to false to disable
 
 local GAME_EVENT_ID = 17 -- Set the game event ID
 local MAX_NPC_SPAWN = 3 -- Set the maximum number of NPCs to spawn simultaneously. Extremely high numbers will hurt performance
-local ATTACK_CHANCE = 15 -- Set the likelihood of an attack here, in percent
+local ATTACK_CHANCE = 10 -- Set the likelihood of an attack here, in percent
 local DAZE_SPELL_ID = 100201 -- Set the spell ID for daze
 local MINIMUM_LEVEL = 15 -- Set min level to be active
 local EXCLUDED_MAP_ID = 530 
